@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Inker/app/src/main/res/drawable/continue_btn_bg.xml" value="0.26256410256410256" />
+        <entry key="..\:/Inker/app/src/main/res/drawable/edittext_default_bg.xml" value="0.26256410256410256" />
+        <entry key="..\:/Inker/app/src/main/res/drawable/edittext_error_bg.xml" value="0.26256410256410256" />
+        <entry key="..\:/Inker/app/src/main/res/drawable/edittext_valid_bg.xml" value="0.26256410256410256" />
+        <entry key="..\:/Inker/app/src/main/res/drawable/textview_error_bg.xml" value="0.26256410256410256" />
+        <entry key="..\:/Inker/app/src/main/res/layout/activity_auth.xml" value="0.25052083333333336" />
+        <entry key="..\:/Inker/app/src/main/res/layout/activity_main.xml" value="0.12760416666666666" />
+        <entry key="..\:/Inker/app/src/main/res/layout/activity_splash_screen.xml" value="0.23645833333333333" />
+        <entry key="..\:/Inker/app/src/main/res/layout/fragment_login.xml" value="0.4" />
+        <entry key="..\:/Inker/app/src/main/res/layout/fragment_otp.xml" value="0.2" />
+        <entry key="..\:/Inker/app/src/main/res/layout/fragment_registration.xml" value="0.4" />
+        <entry key="..\:/Users/JISHNU/AndroidStudioProjects/Mvvm-architecture-kotlin/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

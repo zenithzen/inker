@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Inker</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button">Button</string>
+
+    <string name="welcome_back">Welcome back</string>
+    <string name="enter_you_phone_number_to_login">Enter you phone number to login</string>
+    <string name="Enter_Phone_No">Enter Phone No.</string>
+    <string name="Continue">Continue</string>
+    <string name="Dont_have_an_account">Don’t have an account? </string>
+    <string name="SignUp">Sign Up</string>
+    <string name="SignIn">Sign In</string>
+    <string name="country_code">+91</string>
+    <string name="Register_Now">Register Now</string>
+    <string name="Lets_create_your_account">Let’s create your account</string>
+    <string name="Full_Name">Full Name</string>
+    <string name="Already_have_an_account">Already have an account? </string>
+    <string name="Invalid_mobile_number">Invalid mobile number</string>
+    <string name="Invalid_name_format">Invalid name format (First name_Last name)</string>
+    <string name="Your_number_doesnt_exist">Your number doesn’t exist. Please register.</string>
+
+    <string name="Verify_OTP">Verify OTP</string>
+    <string name="We_have_sent_a_verification_code">We have sent a verification code to</string>
+    <string name="Change">Change</string>
+    <string name="Didnt_receive_OTP">Didn’t receive OTP? </string>
+
+</resources>

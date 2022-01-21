@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.otp.OtpFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="38dp"
+            android:fontFamily="@font/bai_jamjuree_bold"
+            android:text="@string/Verify_OTP"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/subTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/bai_jamjuree_regular"
+            android:text="@string/We_have_sent_a_verification_code"
+            android:textColor="@color/subTitleColor"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/mobileNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/bai_jamjuree_semi_bold"
+            android:gravity="center_vertical"
+            android:text="+91 999 888 7878"
+            android:textColor="@color/subTitleColor"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subTitle" />
+
+        <TextView
+            android:id="@+id/change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/bai_jamjuree_medium"
+            android:gravity="center_vertical"
+            android:text="@string/Change"
+            android:textColor="@color/btnColor"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/mobileNumber"
+            app:layout_constraintStart_toEndOf="@+id/mobileNumber"
+            app:layout_constraintTop_toTopOf="@id/mobileNumber" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/firstPinView"
+            style="@style/PinWidget.PinView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+
+            android:layout_marginTop="20dp"
+            android:cursorVisible="true"
+            android:fontFamily="@font/bai_jamjuree_medium"
+            android:gravity="center"
+            android:inputType="number"
+
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:cursorColor="@color/black"
+            app:cursorWidth="2dp"
+            app:itemCount="6"
+
+            app:itemHeight="55dp"
+            app:itemRadius="6dp"
+            app:itemSpacing="10dp"
+            app:itemWidth="48dp"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mobileNumber"
+            app:lineColor="@color/borderDefault"
+            app:lineWidth="2dp"
+            app:viewType="rectangle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
