@@ -3,10 +3,8 @@ package com.wacmob.inker.ui.otp
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
@@ -21,6 +19,15 @@ import com.wacmob.inker.viewmodels.AuthViewModel
 import com.wacmob.inker.viewmodels.OtpViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import android.view.View.OnFocusChangeListener
+
+import android.view.View.OnTouchListener
+
+
+
+
+
+
 
 
 @AndroidEntryPoint
@@ -28,7 +35,7 @@ class OtpFragment : Fragment() {
     @Inject
     lateinit var preferenceHandler: PreferenceHandler
 
-
+    private val isFirstTime=true
     private val viewModel: OtpViewModel by viewModels()
     private val binding: FragmentOtpBinding by viewBinding()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,33 +47,26 @@ class OtpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_otp, container, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-      //  binding.firstPinView.onTextCha
-        binding.firstPinView.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-              //  showToast(s.toString())
-                if (s!=null && s.isNotEmpty())
-                {
-                    if (s.length==6)
-                    {
-                        binding.firstPinView.setLineColor(ContextCompat.getColor(requireActivity(),R.color.valid_border_color))
-                    }else
-                    {
-                        binding.firstPinView.setLineColor(ContextCompat.getColor(requireActivity(),R.color.borderDefault))
 
-                    }
-                }
+       /* binding.firstPinView.isEnabled = false
+        binding.firstPinView.isFocusable = false*/
 
-            }
 
-            override fun afterTextChanged(s: Editable) {}
-        })
+
+
 
 
     }

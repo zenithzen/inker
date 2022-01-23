@@ -23,6 +23,7 @@
     <string name="Verify_OTP">Verify OTP</string>
     <string name="We_have_sent_a_verification_code">We have sent a verification code to</string>
     <string name="Change">Change</string>
-    <string name="Didnt_receive_OTP">Didn’t receive OTP? </string>
+    <string name="Didnt_receive_OTP">Didn’t receive OTP ? </string>
+    <string name="invalid_otp">Invalid OTP</string>
 
 </resources>

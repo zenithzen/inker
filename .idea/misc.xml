@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Inker/app/src/main/res/drawable/continue_btn_bg.xml" value="0.26256410256410256" />
+        <entry key="..\:/Inker/app/src/main/res/drawable/drawable_default_box.xml" value="0.16905537459283387" />
+        <entry key="..\:/Inker/app/src/main/res/drawable/drawable_error_box.xml" value="0.16905537459283387" />
+        <entry key="..\:/Inker/app/src/main/res/drawable/drawable_yellow_box.xml" value="0.16905537459283387" />
         <entry key="..\:/Inker/app/src/main/res/drawable/edittext_default_bg.xml" value="0.26256410256410256" />
         <entry key="..\:/Inker/app/src/main/res/drawable/edittext_error_bg.xml" value="0.26256410256410256" />
         <entry key="..\:/Inker/app/src/main/res/drawable/edittext_valid_bg.xml" value="0.26256410256410256" />
