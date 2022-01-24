@@ -25,5 +25,9 @@
     <string name="Change">Change</string>
     <string name="Didnt_receive_OTP">Didn’t receive OTP ? </string>
     <string name="invalid_otp">Invalid OTP</string>
+    <string name="Leaderboard">Leaderboard</string>
+    <string name="Bronze_Club">Bronze Club</string>
+    <string name="Silver_Club">Silver Club</string>
+    <string name="Gold_Club">Gold Club</string>
 
 </resources>

@@ -23,6 +23,7 @@
     <color name="color_button_Fail">#F85E5E</color>
     <color name="color_button_primary">#FD7802</color>
     <color name="color_border_default">#D1D1D1</color>
+    <color name="back_btn_border">#B2C7D9</color>
     <array name="dot_colors">
         <item>#FFFFFF</item>
         <item>#FFFFFF</item>

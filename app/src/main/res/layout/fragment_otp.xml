@@ -65,7 +65,7 @@
             app:layout_constraintStart_toEndOf="@+id/mobileNumber"
             app:layout_constraintTop_toTopOf="@id/mobileNumber" />
 
-        <in.aabhasjindal.otptextview.OtpTextView
+    <!--    <in.aabhasjindal.otptextview.OtpTextView
             android:id="@+id/firstPinView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,9 +94,9 @@
 
             app:otp_text_size="20sp"
             app:text_typeface="@font/bai_jamjuree_medium"
-            app:width="48dp" />
+            app:width="48dp" />-->
 
-        <!--  <com.chaos.view.PinView
+          <com.chaos.view.PinView
                 android:id="@+id/firstPinView"
               style="@style/PinWidget.PinView"
               android:layout_width="0dp"
@@ -124,9 +124,9 @@
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toBottomOf="@+id/mobileNumber"
-              app:lineColor="@color/line_colors"
+              app:lineColor="@color/borderDefault"
               app:lineWidth="2dp"
-              app:viewType="rectangle" />-->
+              app:viewType="rectangle" />
         <TextView
             android:id="@+id/errorText2"
             android:layout_width="wrap_content"

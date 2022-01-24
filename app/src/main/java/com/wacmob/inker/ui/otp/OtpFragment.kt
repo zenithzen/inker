@@ -1,5 +1,6 @@
 package com.wacmob.inker.ui.otp
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -22,12 +23,7 @@ import javax.inject.Inject
 import android.view.View.OnFocusChangeListener
 
 import android.view.View.OnTouchListener
-
-
-
-
-
-
+import com.wacmob.inker.ui.main.MainActivity
 
 
 @AndroidEntryPoint
@@ -35,7 +31,7 @@ class OtpFragment : Fragment() {
     @Inject
     lateinit var preferenceHandler: PreferenceHandler
 
-    private val isFirstTime=true
+    private val isFirstTime = true
     private val viewModel: OtpViewModel by viewModels()
     private val binding: FragmentOtpBinding by viewBinding()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,12 +57,40 @@ class OtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       /* binding.firstPinView.isEnabled = false
-        binding.firstPinView.isFocusable = false*/
+        binding.continueBtn.setOnClickListener {
+
+            //binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),R.color.valid_border_color))
+            Intent(requireContext(),MainActivity::class.java).apply {
+                startActivity(this)
+
+            }
+            requireActivity().finish()
+
+        }
+
+          binding.change.setOnClickListener {
+
+            binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),R.color.error_color))
+        }
+       binding.firstPinView.addTextChangedListener(object :TextWatcher{
+           override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+           }
+
+           override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
 
+                   binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),R.color.borderDefault))
 
 
+           }
+
+           override fun afterTextChanged(p0: Editable?) {
+
+           }
+
+
+       })
 
 
     }
