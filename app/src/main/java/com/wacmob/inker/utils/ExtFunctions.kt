@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -43,6 +44,11 @@ fun Fragment.hideKeyboard() {
     activity?.currentFocus?.clearFocus()
 }
 
+fun Fragment.showKeyboard() {
+
+    activity?.currentFocus?.let { activity?.showKeyboard(it) }
+}
+
 fun AppCompatActivity.hideKeyboard() {
     hideKeyboard(currentFocus ?: View(this))
 }
@@ -50,6 +56,12 @@ fun AppCompatActivity.hideKeyboard() {
 fun Context.hideKeyboard(view: View) {
     val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+fun Context.showKeyboard(view: View) {
+    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as
+            InputMethodManager
+    imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
 }
 
 
@@ -68,3 +80,5 @@ val Int.dp: Int
 
 val Int.px: Int
     get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+
+

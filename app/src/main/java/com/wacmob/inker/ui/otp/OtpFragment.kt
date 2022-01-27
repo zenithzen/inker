@@ -2,6 +2,7 @@ package com.wacmob.inker.ui.otp
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
@@ -30,12 +31,13 @@ import com.wacmob.inker.ui.main.MainActivity
 class OtpFragment : Fragment() {
     @Inject
     lateinit var preferenceHandler: PreferenceHandler
-
+     lateinit var timer: CountDownTimer
     private val isFirstTime = true
     private val viewModel: OtpViewModel by viewModels()
     private val binding: FragmentOtpBinding by viewBinding()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
     }
 
@@ -43,9 +45,7 @@ class OtpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_otp, container, false)
     }
 
@@ -56,7 +56,7 @@ class OtpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+startTimer(30000,1000)
         binding.continueBtn.setOnClickListener {
 
             //binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),R.color.valid_border_color))
@@ -79,8 +79,23 @@ class OtpFragment : Fragment() {
 
            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
+                   if (p0.toString().length==6) {
+                       binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
+                           R.color.valid_border_color))
+                     /*  binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
+                           R.color.error_color))*/
+                       timer.cancel()
 
-                   binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),R.color.borderDefault))
+                       Intent(requireContext(),MainActivity::class.java).apply {
+                           startActivity(this)
+
+                       }
+                       requireActivity().finish()
+                   }else
+                   {
+                       binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
+                           R.color.borderDefault))
+                   }
 
 
            }
@@ -92,6 +107,33 @@ class OtpFragment : Fragment() {
 
        })
 
+
+    }
+
+
+    private fun startTimer(totalTime:Long,counterTime:Long)
+    {
+     timer=   object : CountDownTimer(totalTime, counterTime) {
+
+            override fun onTick(millisUntilFinished: Long) {
+                val countTimer=millisUntilFinished / 1000
+
+                if (countTimer<10)
+                {
+                    binding.timer.text = "00:0" + millisUntilFinished / 1000
+
+                }else
+                {
+                    binding.timer.text = "00:" + millisUntilFinished / 1000
+                }
+
+
+            }
+
+            override fun onFinish() {
+                binding.timer.text = "00:00"
+            }
+        }.start()
 
     }
 }

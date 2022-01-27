@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:context=".ui.otp.OtpFragment">
 
         <!-- TODO: Update blank fragment layout -->
@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="18dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="54dp"
             android:fontFamily="@font/bai_jamjuree_bold"
             android:text="@string/Verify_OTP"
             android:textColor="@color/black"
@@ -29,11 +29,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="18dp"
-            android:layout_marginTop="15dp"
+
             android:fontFamily="@font/bai_jamjuree_regular"
             android:text="@string/We_have_sent_a_verification_code"
             android:textColor="@color/subTitleColor"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
@@ -42,12 +42,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18sp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="7dp"
             android:fontFamily="@font/bai_jamjuree_semi_bold"
             android:gravity="center_vertical"
             android:text="+91 999 888 7878"
             android:textColor="@color/subTitleColor"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/subTitle" />
 
@@ -60,7 +60,7 @@
             android:gravity="center_vertical"
             android:text="@string/Change"
             android:textColor="@color/btnColor"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/mobileNumber"
             app:layout_constraintStart_toEndOf="@+id/mobileNumber"
             app:layout_constraintTop_toTopOf="@id/mobileNumber" />
@@ -97,6 +97,7 @@
             app:width="48dp" />-->
 
           <com.chaos.view.PinView
+
                 android:id="@+id/firstPinView"
               style="@style/PinWidget.PinView"
               android:layout_width="0dp"
@@ -104,7 +105,7 @@
               android:layout_marginStart="18dp"
               android:layout_marginEnd="18dp"
 
-              android:layout_marginTop="20dp"
+              android:layout_marginTop="26dp"
               android:cursorVisible="true"
               android:fontFamily="@font/bai_jamjuree_medium"
               android:gravity="center"
@@ -137,7 +138,7 @@
             android:text="@string/invalid_otp"
             android:textColor="@color/color_button_Fail"
             android:textSize="14sp"
-            android:visibility="gone"
+          android:visibility="gone"
             app:layout_constraintStart_toStartOf="@id/firstPinView"
             app:layout_constraintTop_toBottomOf="@+id/firstPinView" />
 
@@ -150,7 +151,7 @@
             android:background="@drawable/continue_btn_bg"
             android:fontFamily="@font/bai_jamjuree_bold"
             android:gravity="center"
-
+             android:visibility="invisible"
             android:text="@string/Verify_OTP"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
@@ -159,7 +160,8 @@
             app:layout_constraintTop_toBottomOf="@+id/errorText2" />
 
         <LinearLayout
-            android:id="@+id/signInLayout"
+            android:layout_marginBottom="50dp"
+            android:id="@+id/resendOtpLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
@@ -167,7 +169,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/continueBtn">
+           app:layout_constraintBottom_toBottomOf="parent">
 
 
             <TextView
@@ -183,6 +185,7 @@
                 />
 
             <TextView
+                android:id="@+id/timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bai_jamjuree_semi_bold"

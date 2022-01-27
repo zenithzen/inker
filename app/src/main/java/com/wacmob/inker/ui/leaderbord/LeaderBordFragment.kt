@@ -15,9 +15,11 @@ import com.wacmob.inker.viewmodels.LeaderBordViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import android.R
+import android.graphics.Color
 import android.graphics.Typeface
 
 import androidx.core.content.res.ResourcesCompat
+import com.wacmob.inker.utils.TextDrawable
 import com.wacmob.inker.utils.hide
 import com.wacmob.inker.utils.show
 
@@ -50,6 +52,27 @@ class LeaderBordFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         binding.listener = this
 
+
+
+        try {
+            val density = resources.displayMetrics.density
+            val tf = Typeface.createFromAsset(context?.assets, "bai_jamjuree_bold.ttf")
+
+            binding.pic.setImageDrawable(TextDrawable.builder()
+                .beginConfig()
+                .textColor(Color.parseColor("#2F8D5B"))
+                .useFont(tf)
+                .fontSize(((17) * density).toInt())
+                .toUpperCase()
+                .endConfig()
+                .buildRound("A",
+                    Color.parseColor("#D0FFE6")))
+
+        } catch (e: Exception) {
+            println("@XD" + e.message)
+        }
+
+
     }
 
 
@@ -58,7 +81,6 @@ class LeaderBordFragment : Fragment(), View.OnClickListener {
             binding.bronzeLayout -> {
                 binding.bronzeLayout.hide()
                 binding.bronzeLayoutLarge.show()
-
                 binding.silverLayoutLarge.hide()
                 binding.silverLayout.show()
                 binding.goldLayout.show()
@@ -69,7 +91,6 @@ class LeaderBordFragment : Fragment(), View.OnClickListener {
             binding.silverLayout -> {
                 binding.bronzeLayout.show()
                 binding.bronzeLayoutLarge.hide()
-
                 binding.silverLayoutLarge.show()
                 binding.silverLayout.hide()
                 binding.goldLayout.show()
@@ -80,7 +101,6 @@ class LeaderBordFragment : Fragment(), View.OnClickListener {
             binding.goldLayout -> {
                 binding.bronzeLayout.show()
                 binding.bronzeLayoutLarge.hide()
-
                 binding.silverLayoutLarge.hide()
                 binding.silverLayout.show()
                 binding.goldLayout.hide()
