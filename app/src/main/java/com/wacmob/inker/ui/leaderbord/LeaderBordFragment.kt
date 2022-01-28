@@ -20,6 +20,7 @@ import android.graphics.Typeface
 
 import androidx.core.content.res.ResourcesCompat
 import com.wacmob.inker.utils.TextDrawable
+import com.wacmob.inker.utils.findNavController
 import com.wacmob.inker.utils.hide
 import com.wacmob.inker.utils.show
 
@@ -106,6 +107,11 @@ class LeaderBordFragment : Fragment(), View.OnClickListener {
                 binding.goldLayout.hide()
                 binding.goldLayoutLarge.show()
 
+            }
+
+            binding.title->{
+
+                findNavController().navigate(com.wacmob.inker.R.id.action_leaderBordFragment_to_dashboardFragment)
             }
         }
     }

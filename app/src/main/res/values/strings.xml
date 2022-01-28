@@ -30,5 +30,7 @@
     <string name="Bronze_Club">Bronze Club</string>
     <string name="Silver_Club">Silver Club</string>
     <string name="Gold_Club">Gold Club</string>
+    <string name="Robomakers">Robomakers</string>
+    <string name="JoiningDate">Joining Date</string>
 
 </resources>

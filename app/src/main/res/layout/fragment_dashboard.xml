@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context=".ui.dash.DashboardFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/letterBg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/alpha_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="78dp"
+            android:layout_height="39dp"
+            android:layout_margin="20dp"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="18dp"
+            android:background="#FFFFFF"
+            app:cardCornerRadius="29dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/crownIcon"
+                    android:layout_width="34dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="5dp"
+                    android:src="@drawable/crown_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bai_jamjuree_bold"
+
+                    android:gravity="center"
+                    android:text="25"
+                    android:textColor="@color/recycler_item_text_color"
+                    android:textSize="14sp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/crownIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/bai_jamjuree_semi_bold"
+            android:text="Hi Alex Paul!"
+            android:textColor="@color/heading_text_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/letterBg" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/edit"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profileName"
+            app:layout_constraintStart_toEndOf="@+id/profileName"
+            app:layout_constraintTop_toTopOf="@+id/profileName"
+            app:layout_constraintVertical_bias=".5"
+            app:srcCompat="@drawable/ic_icon" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/secondLayout"
+            android:layout_marginTop="23dp"
+            android:layout_marginStart="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileName">
+            <TextView
+                android:id="@+id/roboMakers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/Robomakers"
+                android:textSize="14sp"
+                android:textColor="@color/sub_heading_text_color"
+                android:fontFamily="@font/bai_jamjuree_medium"/>
+
+            <TextView
+                android:id="@+id/level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level : 01"
+                app:layout_constraintStart_toStartOf="@+id/roboMakers"
+                app:layout_constraintTop_toBottomOf="@+id/roboMakers"
+                android:textColor="@color/heading_text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/bai_jamjuree_semi_bold"/>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+
+                android:layout_marginStart="35dp"
+
+                android:background="@color/color_border_mcq"
+                app:layout_constraintStart_toEndOf="@+id/roboMakers"
+                app:layout_constraintTop_toTopOf="@+id/roboMakers"
+                app:layout_constraintBottom_toBottomOf="@+id/level"/>
+
+            <TextView
+                android:id="@+id/JoiningDate"
+                android:layout_marginStart="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               app:layout_constraintStart_toEndOf="@+id/divider"
+                app:layout_constraintTop_toTopOf="@id/divider"
+                android:text="@string/JoiningDate"
+                android:textSize="14sp"
+                android:textColor="@color/sub_heading_text_color"
+                android:fontFamily="@font/bai_jamjuree_medium"/>
+
+            <TextView
+                android:id="@+id/dateData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jan 1, 2021"
+                app:layout_constraintStart_toStartOf="@+id/JoiningDate"
+                app:layout_constraintTop_toBottomOf="@+id/JoiningDate"
+                android:textColor="@color/heading_text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/bai_jamjuree_semi_bold"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/mainDivider"
+            android:layout_marginTop="16dp"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:background="#F5F5F5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/secondLayout"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainDivider"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dashData"
+
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

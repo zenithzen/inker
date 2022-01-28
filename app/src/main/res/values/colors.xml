@@ -27,6 +27,11 @@
     <color name="back_btn_border">#B2C7D9</color>
     <color name="alphabet_sample_bg">#D0FFE6</color>
     <color name="recycler_item_text_color">#103C63</color>
+    <color name="heading_text_color">#121212</color>
+    <color name="sub_heading_text_color">#505050</color>
+    <color name="color_border_mcq">#CADCE0</color>
+    <color name="item_bg_color1">#FFE2EC</color>
+    <color name="item_bg_color2">#CEFFE5</color>
     <array name="dot_colors">
         <item>#FFFFFF</item>
         <item>#FFFFFF</item>

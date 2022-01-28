@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.DisplayMetrics
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.viewbinding.library.fragment.viewBinding
@@ -31,7 +32,7 @@ import com.wacmob.inker.ui.main.MainActivity
 class OtpFragment : Fragment() {
     @Inject
     lateinit var preferenceHandler: PreferenceHandler
-     lateinit var timer: CountDownTimer
+    lateinit var timer: CountDownTimer
     private val isFirstTime = true
     private val viewModel: OtpViewModel by viewModels()
     private val binding: FragmentOtpBinding by viewBinding()
@@ -56,11 +57,12 @@ class OtpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-startTimer(30000,1000)
+
+        startTimer(30000, 1000)
         binding.continueBtn.setOnClickListener {
 
             //binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),R.color.valid_border_color))
-            Intent(requireContext(),MainActivity::class.java).apply {
+            Intent(requireContext(), MainActivity::class.java).apply {
                 startActivity(this)
 
             }
@@ -68,62 +70,59 @@ startTimer(30000,1000)
 
         }
 
-          binding.change.setOnClickListener {
+        binding.change.setOnClickListener {
 
-            binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),R.color.error_color))
+            binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
+                R.color.error_color))
         }
-       binding.firstPinView.addTextChangedListener(object :TextWatcher{
-           override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        binding.firstPinView.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
-           }
+            }
 
-           override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
-                   if (p0.toString().length==6) {
-                       binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
-                           R.color.valid_border_color))
-                     /*  binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
-                           R.color.error_color))*/
-                       timer.cancel()
+                if (p0.toString().length == 6) {
+                    binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
+                        R.color.valid_border_color))
+                    /*  binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
+                          R.color.error_color))*/
+                    timer.cancel()
 
-                       Intent(requireContext(),MainActivity::class.java).apply {
-                           startActivity(this)
+                    Intent(requireContext(), MainActivity::class.java).apply {
+                        startActivity(this)
 
-                       }
-                       requireActivity().finish()
-                   }else
-                   {
-                       binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
-                           R.color.borderDefault))
-                   }
-
-
-           }
-
-           override fun afterTextChanged(p0: Editable?) {
-
-           }
+                    }
+                    requireActivity().finish()
+                } else {
+                    binding.firstPinView.setLineColor( ContextCompat.getColor(requireContext(),
+                        R.color.borderDefault))
+                }
 
 
-       })
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+
+        })
 
 
     }
 
 
-    private fun startTimer(totalTime:Long,counterTime:Long)
-    {
-     timer=   object : CountDownTimer(totalTime, counterTime) {
+    private fun startTimer(totalTime: Long, counterTime: Long) {
+        timer = object : CountDownTimer(totalTime, counterTime) {
 
             override fun onTick(millisUntilFinished: Long) {
-                val countTimer=millisUntilFinished / 1000
+                val countTimer = millisUntilFinished / 1000
 
-                if (countTimer<10)
-                {
+                if (countTimer < 10) {
                     binding.timer.text = "00:0" + millisUntilFinished / 1000
 
-                }else
-                {
+                } else {
                     binding.timer.text = "00:" + millisUntilFinished / 1000
                 }
 
