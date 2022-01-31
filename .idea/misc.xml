@@ -31,10 +31,13 @@
         <entry key="..\:/Inker/app/src/main/res/layout/fragment_otp.xml" value="0.4" />
         <entry key="..\:/Inker/app/src/main/res/layout/fragment_registration.xml" value="0.4" />
         <entry key="..\:/Inker/app/src/main/res/layout/item_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Inker/app/src/main/res/layout/layout_video_view.xml" value="0.2441123188405797" />
         <entry key="..\:/Inker/app/src/main/res/layout/leader_board_layout.xml" value="0.16052631578947368" />
+        <entry key="..\:/Inker/app/src/main/res/layout/progress_dialog.xml" value="0.25416666666666665" />
         <entry key="..\:/Inker/app/src/main/res/layout/recycle_item1.xml" value="0.25416666666666665" />
         <entry key="..\:/Inker/app/src/main/res/layout/recycle_item2.xml" value="0.536" />
         <entry key="..\:/Inker/app/src/main/res/layout/recycler_base_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Inker/app/src/main/res/layout/recycler_item_3.xml" value="0.25416666666666665" />
         <entry key="..\:/Inker/app/src/main/res/layout/test.xml" value="0.4" />
         <entry key="..\:/Inker/app/src/main/res/layout/test_layout.xml" value="0.264" />
         <entry key="..\:/Users/JISHNU/AndroidStudioProjects/Mvvm-architecture-kotlin/app/src/main/res/layout/fragment_first.xml" value="0.1" />
@@ -42,5 +45,5 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

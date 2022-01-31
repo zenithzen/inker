@@ -26,12 +26,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginHorizontal="18dp"
             android:id="@+id/baseRecyclerView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="12dp"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title"
             app:layout_goneMarginTop="0dp" />
+
+
 
 
         <View

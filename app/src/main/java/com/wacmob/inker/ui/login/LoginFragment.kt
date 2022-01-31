@@ -27,9 +27,15 @@ import javax.inject.Inject
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.content.ContextCompat.getSystemService
 import android.app.Activity
+import android.app.ProgressDialog
 
 import android.view.WindowManager
 import android.widget.EditText
+import androidx.lifecycle.Observer
+import com.wacmob.inker.baseresult.BaseResult
+import com.wacmob.inker.models.LoginRequest
+import com.wacmob.inker.models.LoginResponse
+import com.wacmob.inker.ui.auth.AuthActivity
 import com.wacmob.inker.utils.*
 import java.lang.Exception
 
@@ -48,6 +54,10 @@ private const val ARG_PARAM2 = "param2"
 class LoginFragment : Fragment(), View.OnClickListener {
     @Inject
     lateinit var preferenceHandler: PreferenceHandler
+
+    @Inject
+    lateinit var stylishToastyUtils: StylishToastyUtils
+    private var mProgressDialog: ProgressDialog? = null
     private var navController: NavController? = null
 
     private val viewModel: AuthViewModel by viewModels()
@@ -55,6 +65,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
 
     }
 
@@ -69,7 +80,41 @@ class LoginFragment : Fragment(), View.OnClickListener {
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-          binding.listener=this
+        binding.listener = this
+
+        viewModel.getLoginData.observe(viewLifecycleOwner,
+            Observer { it: BaseResult<LoginResponse> ->
+                when (it.status) {
+                    BaseResult.Status.SUCCESS -> {
+                        hideLoading()
+
+                        if (it?.data?.data != null) {
+
+                            val bundle: Bundle =
+                                bundleOf("number" to binding.mobileNumber.text.toString(),
+                                    "country_code" to "+91",
+                                    "user_code" to it.data?.data?.user_code)
+
+
+                            findNavController().navigate(R.id.action_loginFragment_to_otpFragment,
+                                bundle)
+                        }
+
+
+                    }
+                    BaseResult.Status.ERROR -> {
+
+                        hideLoading()
+
+                    }
+
+                    BaseResult.Status.LOADING -> {
+                        showLoading()
+
+                    }
+                }
+            })
+
         binding.mobileNumber.setOnTouchListener(View.OnTouchListener { arg0, arg1 ->
             if (binding.mobileNumber.text.toString().isEmpty()) {
                 binding.countryCode.hide()
@@ -90,6 +135,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s != null && s.isNotEmpty()) {
+
                     /* if (isPhoneNumberValid(s.toString())) {*/
                     binding.countryCode.show()
                     binding.view.show()
@@ -118,8 +164,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-        if (binding.mobileNumber.text.toString().isNotEmpty())
-        {
+        if (binding.mobileNumber.text.toString().isNotEmpty()) {
             binding.mobileNumber.requestFocus()
             showKeyboard()
         }
@@ -135,11 +180,15 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
             }
             binding.continueBtn -> {
+                hideKeyboard()
+                //viewModel.getLogin()
 
                 if (binding.mobileNumber.text.toString()
                         .isNotEmpty() && isPhoneNumberValid(binding.mobileNumber.text.toString())
                 ) {
-                    findNavController().navigate(R.id.action_loginFragment_to_otpFragment)
+                    //  findNavController().navigate(R.id.action_loginFragment_to_otpFragment)
+                    viewModel.getLogin(LoginRequest(binding.mobileNumber.text.toString(),
+                        resources.getString(R.string.country_code2)))
                 } else {
 
                     binding.countryCode.show()
@@ -187,5 +236,16 @@ class LoginFragment : Fragment(), View.OnClickListener {
         hideKeyboard()
         super.onDestroy()
 
+    }
+
+    fun hideLoading() {
+        if (mProgressDialog != null && mProgressDialog?.isShowing == true) {
+            mProgressDialog?.cancel()
+        }
+    }
+
+    fun showLoading() {
+        hideLoading()
+        mProgressDialog = DialogUtils.showLoadingDialog(requireContext())
     }
 }

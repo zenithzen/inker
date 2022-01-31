@@ -29,5 +29,18 @@
     <fragment
         android:id="@+id/otpFragment"
         android:name="com.wacmob.inker.ui.otp.OtpFragment"
-        android:label="OtpFragment" />
+        android:label="OtpFragment" >
+        <action
+            android:id="@+id/action_otpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="number"
+            android:defaultValue="None" />
+        <argument
+            android:name="country_code"
+            android:defaultValue="None" />
+        <argument
+            android:name="user_code"
+            android:defaultValue="None" />
+    </fragment>
 </navigation>

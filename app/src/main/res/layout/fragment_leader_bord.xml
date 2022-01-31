@@ -71,6 +71,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:visibility="gone"
             android:id="@+id/cardView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -349,7 +350,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-
+            android:visibility="gone"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -358,6 +359,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/out_round_bg">
             <androidx.constraintlayout.widget.ConstraintLayout
+
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -369,6 +371,7 @@
                 android:padding="2dp"
                 >
                 <androidx.appcompat.widget.AppCompatImageView
+
                      android:id="@+id/img"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -391,6 +394,35 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerInParent="true"
+            android:padding="6dp"
+            android:src="@drawable/icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <com.devlomi.circularstatusview.CircularStatusView
+            android:id="@+id/circular_status_view"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerInParent="true"
+            app:portion_color="@color/colorAccent"
+
+            app:portion_width="4dp"
+            app:portions_count="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@
     <string name="SignUp">Sign Up</string>
     <string name="SignIn">Sign In</string>
     <string name="country_code">+91</string>
+    <string name="country_code2">91</string>
     <string name="Register_Now">Register Now</string>
     <string name="Lets_create_your_account">Let’s create your account</string>
     <string name="Full_Name">Full Name</string>
@@ -32,5 +33,8 @@
     <string name="Gold_Club">Gold Club</string>
     <string name="Robomakers">Robomakers</string>
     <string name="JoiningDate">Joining Date</string>
+    <string name="colon">:  </string>
+    <string name="Get_Started">Get Started</string>
+    <string name="titles">Lorem ipsum dolor amet, consect adipiscing</string>
 
 </resources>

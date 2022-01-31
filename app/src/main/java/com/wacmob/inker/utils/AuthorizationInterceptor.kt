@@ -20,8 +20,15 @@ class AuthorizationInterceptor @Inject constructor(val preferenceHandler: Prefer
 
             Timber.e(preferenceHandler.userToken)
 
-            newBuilder()
+          /*  newBuilder()
                 .header("useraccesstoken", preferenceHandler.userToken)
+                .build()*/
+
+            Timber.e(preferenceHandler.userToken)
+
+            newBuilder()
+                .header("Authorization", "Bearer ${preferenceHandler.userToken}")
+                .header("Content-Type", "application/json")
                 .build()
         }
         AuthorizationType.NONE -> this

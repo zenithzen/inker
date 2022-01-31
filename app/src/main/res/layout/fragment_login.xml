@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="listener"
             type="android.view.View.OnClickListener" />
@@ -11,6 +12,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
@@ -47,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="18dp"
-            android:layout_marginTop="27dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/edittext_default_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,20 +59,18 @@
                 android:id="@+id/mobileNumber"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
-                android:layout_marginEnd="18dp"
                 android:background="@null"
-                android:textSize="18sp"
-
                 android:fontFamily="@font/bai_jamjuree_medium"
+
                 android:gravity="center_vertical"
                 android:hint="@string/Enter_Phone_No"
-                android:maxLength="10"
                 android:inputType="number"
-                android:paddingVertical="16dp"
+                android:maxLength="10"
                 android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/view"
@@ -79,7 +79,6 @@
 
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/countryCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,21 +87,22 @@
                 android:paddingStart="14dp"
                 android:text="@string/country_code"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="18sp"
+                android:visibility="gone"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:visibility="gone"
                 android:id="@+id/view"
                 android:layout_width="1dp"
                 android:layout_height="24dp"
-               android:layout_marginStart="18dp"
+                android:layout_marginStart="18dp"
                 android:background="@color/black"
-
                 android:gravity="center_vertical"
+
+                android:visibility="gone"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/countryCode"
@@ -110,17 +110,18 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <TextView
             android:id="@+id/errorText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bai_jamjuree_regular"
+            android:text="@string/Invalid_mobile_number"
             android:textColor="@color/error_color"
             android:textSize="14sp"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/editTextLayout"
-            app:layout_constraintTop_toBottomOf="@+id/editTextLayout"
-            android:text="@string/Invalid_mobile_number"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextLayout" />
 
         <TextView
             android:id="@+id/continueBtn"
@@ -140,14 +141,14 @@
             app:layout_constraintTop_toBottomOf="@+id/errorText" />
 
         <LinearLayout
-            android:visibility="gone"
             android:id="@+id/signUpLayout"
-            android:onClick="@{listener.onClick}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             android:gravity="center"
+            android:onClick="@{listener.onClick}"
             android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/continueBtn">
@@ -177,6 +178,16 @@
 
 
         </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_login_bg2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/continueBtn" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

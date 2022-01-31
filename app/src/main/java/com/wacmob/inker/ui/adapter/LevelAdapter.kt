@@ -47,6 +47,7 @@ class LevelAdapter(val context: Context) : RecyclerView.Adapter<LevelAdapter.Lev
         val data = differ.currentList[position]
         val itemBinding = holder.item1Binding
         itemBinding.item = data
+        data.images?.let { itemBinding.cornerIV.setImageResource(it) }
     }
 
     override fun getItemCount(): Int {

@@ -153,6 +153,11 @@ dependencies {
     implementation 'io.github.chaosleung:pinview:1.4.4'
     //implementation 'com.github.aabhasr1:OtpView:v1.1.2'
     //implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4'
+    implementation 'com.github.3llomi:CircularStatusView:V1.0.2'
+    //implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
 
-    implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
+    //Simple exo player
+   /* implementation 'com.google.android.exoplayer:exoplayer-core:2.15.1'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.15.1'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.15.1'*/
 }

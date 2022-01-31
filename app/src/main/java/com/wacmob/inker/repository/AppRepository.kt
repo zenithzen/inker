@@ -3,16 +3,24 @@ package com.wacmob.inker.repository
 import com.wacmob.inker.baseresult.safeApiCall
 import com.wacmob.inker.localdatabaseservice.AppLocalRoomDatabaseDao
 import com.wacmob.inker.localdatabaseservice.entities.StudentEntity
+import com.wacmob.inker.models.LoginRequest
+import com.wacmob.inker.models.OtpSubmitRequest
 import com.wacmob.inker.remoteservice.ApiHelper
 import javax.inject.Inject
 
 class AppRepository @Inject constructor(
     private val apiHelper: ApiHelper,
-    private val appLocalRoomDatabaseDao: AppLocalRoomDatabaseDao
+    private val appLocalRoomDatabaseDao: AppLocalRoomDatabaseDao,
 ) {
 
     suspend fun getPosts() = safeApiCall { apiHelper.getPosts() }
-  //  suspend fun getNestedPosts()= safeApiCall { apiHelper.getNestedPosts() }
+    suspend fun getLogin(loginRequest: LoginRequest) =
+        safeApiCall { apiHelper.getLogin(loginRequest) }
+
+    suspend fun submitOtp(submitRequest: OtpSubmitRequest) = safeApiCall {
+        apiHelper.submitOtp(submitRequest)
+    }
+    //  suspend fun getNestedPosts()= safeApiCall { apiHelper.getNestedPosts() }
 
     //for room DataBase
     suspend fun insertStudentData(student: StudentEntity) = appLocalRoomDatabaseDao.insert(student)

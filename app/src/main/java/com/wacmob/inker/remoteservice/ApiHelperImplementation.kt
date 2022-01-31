@@ -1,11 +1,16 @@
 package com.wacmob.inker.remoteservice
 
-import com.wacmob.inker.models.TestApiResponseModel
+import com.wacmob.inker.models.*
 import retrofit2.Response
 import javax.inject.Inject
 
 class ApiHelperImplementation @Inject constructor(
-    private val apiService: ApiService
+    private val apiService: ApiService,
 ) : ApiHelper {
     override suspend fun getPosts(): Response<List<TestApiResponseModel>> = apiService.getPosts()
+    override suspend fun getLogin(loginRequest: LoginRequest): Response<LoginResponse> =
+        apiService.getLogin(loginRequest)
+
+    override suspend fun submitOtp(otpSubmitRequest: OtpSubmitRequest): Response<OtpResponse> =
+        apiService.submitOtp(otpSubmitRequest)
 }

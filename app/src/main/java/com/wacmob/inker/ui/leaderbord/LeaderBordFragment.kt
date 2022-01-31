@@ -17,6 +17,7 @@ import javax.inject.Inject
 import android.R
 import android.graphics.Color
 import android.graphics.Typeface
+import androidx.core.content.ContextCompat
 
 import androidx.core.content.res.ResourcesCompat
 import com.wacmob.inker.utils.TextDrawable
@@ -52,7 +53,19 @@ class LeaderBordFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.listener = this
+        println("@AUTH-->"+preferenceHandler.userToken)
 
+        try {
+            binding.circularStatusView.setPortionsCount(3)
+            binding.circularStatusView.setPortionColorForIndex(0,Color.parseColor("#E80000"))
+            binding.circularStatusView.setPortionColorForIndex(1,Color.parseColor("#9F60B2"))
+            binding.circularStatusView.setPortionColorForIndex(2,Color.parseColor("#00B17A"))
+
+        }catch (e:Exception)
+
+        {
+            println("@EXP"+e.message)
+        }
 
 
         try {

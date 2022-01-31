@@ -60,12 +60,29 @@ class RecyclerItemAdapter(val context: Context) :
             binding.title.show()
             binding.title.text = data.titleData
 
+            binding.baseRecyclerView.setHasFixedSize(true)
+            binding.baseRecyclerView.layoutManager =  LinearLayoutManager(context, LinearLayoutManager.VERTICAL ,false)
+            val adapter = PerfomanceListAdapter(context)
+            binding.baseRecyclerView.adapter=adapter
+            adapter.differ.submitList(data.performanceList)
+            adapter.notifyDataSetChanged()
+        } else if (data.level == 3) {
+            binding.title.hide()
+            //binding.title.text = data.titleData
 
-        } else {
+            binding.baseRecyclerView.setHasFixedSize(true)
+            binding.baseRecyclerView.layoutManager =  LinearLayoutManager(context, LinearLayoutManager.VERTICAL ,false)
+            val adapter = SettingAdapter(context)
+            binding.baseRecyclerView.adapter=adapter
+            adapter.differ.submitList(data.performanceList)
+            adapter.notifyDataSetChanged()
+        }
+
+        else {
             binding.baseRecyclerView.setHasFixedSize(true)
             binding.baseRecyclerView.layoutManager = LinearLayoutManager(context,
                 LinearLayoutManager.HORIZONTAL,
-                true)
+                false)
             val adapter = LevelAdapter(context)
             binding.baseRecyclerView.adapter = adapter
             adapter.differ.submitList(data.levelList)

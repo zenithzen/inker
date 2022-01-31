@@ -20,15 +20,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import androidx.recyclerview.widget.DividerItemDecoration
 
 
-
-
 @AndroidEntryPoint
 class DashboardFragment : Fragment() {
     private val binding: FragmentDashboardBinding by viewBinding()
     private val viewModel: DashBoardViewModel by viewModels()
     private var levelDataList: MutableList<LevelData> = arrayListOf()
-    private var perfomanceList: MutableList<Perfomance> =  arrayListOf()
-    private var recyclerBaseModelList: MutableList<RecyclerBaseModel> =  arrayListOf()
+    private var perfomanceList: MutableList<Perfomance> = arrayListOf()
+    private var settingList: MutableList<Perfomance> = arrayListOf()
+    private var recyclerBaseModelList: MutableList<RecyclerBaseModel> = arrayListOf()
     lateinit var adapter: RecyclerItemAdapter
 
 
@@ -52,9 +51,9 @@ class DashboardFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        adapter= RecyclerItemAdapter(requireContext())
+        adapter = RecyclerItemAdapter(requireContext())
         binding.dashData.setHasFixedSize(true)
-        binding.dashData.adapter=adapter
+        binding.dashData.adapter = adapter
 
         adapter.differ.submitList(recyclerBaseModelList)
         adapter.notifyDataSetChanged()
@@ -62,22 +61,33 @@ class DashboardFragment : Fragment() {
     }
 
     private fun setUpData() {
-        levelDataList?.add(LevelData(1,R.drawable.level_item1))
-        levelDataList?.add(LevelData(2,R.drawable.level_item2))
-        levelDataList?.add(LevelData(3,R.drawable.level_item3))
-        levelDataList?.add(LevelData(4,R.drawable.level_item4))
-        levelDataList?.add(LevelData(5,R.drawable.level_item5))
+        levelDataList?.add(LevelData(1, R.drawable.level_item1))
+        levelDataList?.add(LevelData(2, R.drawable.level_item2))
+        levelDataList?.add(LevelData(3, R.drawable.level_item3))
+        levelDataList?.add(LevelData(4, R.drawable.level_item4))
+        levelDataList?.add(LevelData(5, R.drawable.level_item5))
+        levelDataList?.add(LevelData(6, R.drawable.level_item5))
+        levelDataList?.add(LevelData(7, R.drawable.level_item5))
+        levelDataList?.add(LevelData(8, R.drawable.level_item5))
+        levelDataList?.add(LevelData(9, R.drawable.level_item5))
 
-        perfomanceList?.add(Perfomance("Badges", R.drawable.perform_item1, "150", "#FFE2EC"))
-        perfomanceList?.add(Perfomance("Streak", R.drawable.perform_item1, "150", "#CEFFE5"))
+        perfomanceList?.add(Perfomance(1, "Badges", R.drawable.perform_item1, "150", "#FFE2EC"))
+        perfomanceList?.add(Perfomance(2, "Streak", R.drawable.perform_item2, "150", "#CEFFE5"))
 
-        perfomanceList?.add(Perfomance("Shop", R.drawable.perform_item1, "150", "#FFE2EC"))
-        perfomanceList?.add(Perfomance("1000 gal", R.drawable.perform_item1, "", "#CEFFE5"))
+        perfomanceList?.add(Perfomance(3, "Shop", R.drawable.perform_item3, "150", "#FFE2EC"))
+        perfomanceList?.add(Perfomance(4, "1000 gal", R.drawable.perform_item4, "", "#CEFFE5"))
+        settingList?.add(Perfomance(5, "Video Playlist", R.drawable.setting_1, "", "#FFDEB1"))
+        settingList?.add(Perfomance(6, "Preference Settings", R.drawable.setting2, "", "#B9F5FF"))
+        settingList?.add(Perfomance(7, "Certificates", R.drawable.setting2, "", "#DEDEDE"))
+
+
 
         recyclerBaseModelList?.add(RecyclerBaseModel(1, 1, "Performance", levelDataList, null))
-        //recyclerBaseModelList?.add(RecyclerBaseModel(2, 2, "Performance", null, perfomanceList))
+        recyclerBaseModelList?.add(RecyclerBaseModel(2, 2, "Performance", null, perfomanceList))
         recyclerBaseModelList?.add(RecyclerBaseModel(3, 1, "Performance", levelDataList, null))
-
+        recyclerBaseModelList?.add(RecyclerBaseModel(4, 2, "Performance", null, perfomanceList))
+        recyclerBaseModelList?.add(RecyclerBaseModel(8, 1, "Performance", levelDataList, null))
+        recyclerBaseModelList?.add(RecyclerBaseModel(9, 3, "Performance", null, settingList))
 
 
     }
