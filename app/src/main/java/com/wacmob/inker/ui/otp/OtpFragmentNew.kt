@@ -96,9 +96,9 @@ class OtpFragmentNew : Fragment() {
 
             when (it.status) {
                 BaseResult.Status.SUCCESS -> {
-                    hideLoading()
+                  /*  hideLoading()
                     binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
-                        R.color.valid_border_color))
+                        R.color.valid_border_color))*/
                     timer.cancel()
                     if (it?.data?.data != null && it?.data?.code == 200) {
                         preferenceHandler.mobileNumber = it?.data?.data?.user?.mobile.toString()
@@ -122,8 +122,8 @@ class OtpFragmentNew : Fragment() {
                 BaseResult.Status.ERROR -> {
 
                     hideLoading()
-                    binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
-                        R.color.error_color))
+                  /*  binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
+                        R.color.error_color))*/
                     binding.errorText2.show()
 
                 }
@@ -145,7 +145,7 @@ class OtpFragmentNew : Fragment() {
             /* binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
                  R.color.error_color))*/
         }
-        binding.firstPinView.addTextChangedListener(object : TextWatcher
+   /*     binding.firstPinView.addTextChangedListener(object : TextWatcher
         {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -157,25 +157,25 @@ class OtpFragmentNew : Fragment() {
                     binding.errorText2.hide()
                 }
                 if (p0.toString().length == 6) {
-                    /* binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
+                    *//* binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
                          R.color.valid_border_color))
-                     *//*  binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
-                          R.color.error_color))*//*
+                     *//**//*  binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
+                          R.color.error_color))*//**//*
                     timer.cancel()
 
                     Intent(requireContext(), MainActivity::class.java).apply {
                         startActivity(this)
 
                     }
-                    requireActivity().finish()*/
+                    requireActivity().finish()*//*
                     viewModel.submitOtp(OtpSubmitRequest(p0.toString(),
                         userCode,
                         mobileNumber,
                         "91"))
 
                 } else {
-                    binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
-                        R.color.borderDefault))
+                 *//*   binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
+                        R.color.borderDefault))*//*
                 }
 
 
@@ -187,7 +187,7 @@ class OtpFragmentNew : Fragment() {
 
 
         })
-
+*/
 
     }
 

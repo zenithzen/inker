@@ -14,9 +14,6 @@
         <action
             android:id="@+id/action_loginFragment_to_otpFragment"
             app:destination="@id/otpFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_otpFragmentNew2"
-            app:destination="@id/otpFragmentNew2" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -45,13 +42,5 @@
         <argument
             android:name="user_code"
             android:defaultValue="None" />
-    </fragment>
-    <fragment
-        android:id="@+id/otpFragmentNew2"
-        android:name="com.wacmob.inker.ui.otp.OtpFragmentNew"
-        android:label="OtpFragmentNew" >
-        <action
-            android:id="@+id/action_otpFragmentNew2_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

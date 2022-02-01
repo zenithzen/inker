@@ -96,7 +96,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                                     "user_code" to it.data?.data?.user_code)
 
 
-                            findNavController().navigate(R.id.action_loginFragment_to_otpFragmentNew2,
+                            findNavController().navigate(R.id.action_loginFragment_to_otpFragment,
                                 bundle)
                         }
 
@@ -248,4 +248,5 @@ class LoginFragment : Fragment(), View.OnClickListener {
         hideLoading()
         mProgressDialog = DialogUtils.showLoadingDialog(requireContext())
     }
+
 }
