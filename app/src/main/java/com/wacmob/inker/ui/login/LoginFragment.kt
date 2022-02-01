@@ -96,7 +96,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                                     "user_code" to it.data?.data?.user_code)
 
 
-                            findNavController().navigate(R.id.action_loginFragment_to_otpFragment,
+                            findNavController().navigate(R.id.action_loginFragment_to_otpFragmentNew2,
                                 bundle)
                         }
 

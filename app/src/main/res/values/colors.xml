@@ -32,6 +32,8 @@
     <color name="color_border_mcq">#CADCE0</color>
     <color name="item_bg_color1">#FFE2EC</color>
     <color name="item_bg_color2">#CEFFE5</color>
+    <color name="mech_text_color">#BC8900</color>
+    <color name="time_text_color">#00B21E</color>
     <array name="dot_colors">
         <item>#FFFFFF</item>
         <item>#FFFFFF</item>

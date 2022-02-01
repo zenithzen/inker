@@ -8,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.viewbinding.library.activity.viewBinding
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import com.wacmob.inker.R
 import com.wacmob.inker.databinding.ActivitySplashScreenBinding
 import com.wacmob.inker.preferences.PreferenceHandler
@@ -22,10 +23,11 @@ class SplashScreen : AppCompatActivity() {
     @Inject
     lateinit var preferenceHandler: PreferenceHandler
     private val viewModel: SplashViewModel by viewModels()
-    private val binding:ActivitySplashScreenBinding by viewBinding()
+    private val binding: ActivitySplashScreenBinding by viewBinding()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         navigation()
         val videoUrl =
             "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
@@ -56,21 +58,21 @@ class SplashScreen : AppCompatActivity() {
     }
 
     fun navigation() {
-       /* Handler(Looper.getMainLooper()).postDelayed(
+        /* Handler(Looper.getMainLooper()).postDelayed(
 
-            {
-                if (!preferenceHandler.isLogged) {
-                    startActivity(Intent(this, AuthActivity::class.java))
-                    finish()
+             {
+                 if (!preferenceHandler.isLogged) {
+                     startActivity(Intent(this, AuthActivity::class.java))
+                     finish()
 
-                } else {
+                 } else {
 
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
+                     startActivity(Intent(this, MainActivity::class.java))
+                     finish()
 
-                }
+                 }
 
-            }, 4000L)*/
+             }, 4000L)*/
 
     }
 }

@@ -61,15 +61,20 @@ class DashboardFragment : Fragment() {
     }
 
     private fun setUpData() {
-        levelDataList?.add(LevelData(1, R.drawable.level_item1))
+        binding.cueProgressBar.progressMax= 100F
+        binding.cueProgressBar.progress=34F
+        binding.flashProgressBar.progressMax= 100F
+        binding.flashProgressBar.progress=34F
+
+        levelDataList?.add(LevelData(1, R.drawable.level_item4))
         levelDataList?.add(LevelData(2, R.drawable.level_item2))
-        levelDataList?.add(LevelData(3, R.drawable.level_item3))
+        levelDataList?.add(LevelData(3, R.drawable.level_item5))
         levelDataList?.add(LevelData(4, R.drawable.level_item4))
         levelDataList?.add(LevelData(5, R.drawable.level_item5))
-        levelDataList?.add(LevelData(6, R.drawable.level_item5))
+       /* levelDataList?.add(LevelData(6, R.drawable.level_item5))
         levelDataList?.add(LevelData(7, R.drawable.level_item5))
         levelDataList?.add(LevelData(8, R.drawable.level_item5))
-        levelDataList?.add(LevelData(9, R.drawable.level_item5))
+        levelDataList?.add(LevelData(9, R.drawable.level_item5))*/
 
         perfomanceList?.add(Perfomance(1, "Badges", R.drawable.perform_item1, "150", "#FFE2EC"))
         perfomanceList?.add(Perfomance(2, "Streak", R.drawable.perform_item2, "150", "#CEFFE5"))
@@ -83,11 +88,11 @@ class DashboardFragment : Fragment() {
 
 
         recyclerBaseModelList?.add(RecyclerBaseModel(1, 1, "Performance", levelDataList, null))
-        recyclerBaseModelList?.add(RecyclerBaseModel(2, 2, "Performance", null, perfomanceList))
+      /*  recyclerBaseModelList?.add(RecyclerBaseModel(2, 2, "Performance", null, perfomanceList))
         recyclerBaseModelList?.add(RecyclerBaseModel(3, 1, "Performance", levelDataList, null))
         recyclerBaseModelList?.add(RecyclerBaseModel(4, 2, "Performance", null, perfomanceList))
         recyclerBaseModelList?.add(RecyclerBaseModel(8, 1, "Performance", levelDataList, null))
-        recyclerBaseModelList?.add(RecyclerBaseModel(9, 3, "Performance", null, settingList))
+        recyclerBaseModelList?.add(RecyclerBaseModel(9, 3, "Performance", null, settingList))*/
 
 
     }

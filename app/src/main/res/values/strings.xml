@@ -35,6 +35,16 @@
     <string name="JoiningDate">Joining Date</string>
     <string name="colon">:  </string>
     <string name="Get_Started">Get Started</string>
+    <string name="Performance">Performance</string>
     <string name="titles">Lorem ipsum dolor amet, consect adipiscing</string>
+    <string name="badge">Badges: </string>
+    <string name="Streak">Streak: </string>
+    <string name="shop">Shop: </string>
+    <string name="Cues_Completed">Cues Completed</string>
+    <string name="Flashcard_Collected">Flashcard Collected</string>
+    <string name="Concepts_Learned">Concepts Learned</string>
+    <string name="Time_Spent">Time Spent</string>
+    <string name="Mechanical">Mechanical</string>
+    <string name="Hours">Hours</string>
 
 </resources>

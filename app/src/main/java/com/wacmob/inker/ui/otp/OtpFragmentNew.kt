@@ -6,36 +6,34 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.DisplayMetrics
-import android.view.*
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.viewbinding.library.fragment.viewBinding
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
-import androidx.core.widget.doOnTextChanged
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavController
 import com.wacmob.inker.R
-import com.wacmob.inker.databinding.FragmentLoginBinding
+import com.wacmob.inker.baseresult.BaseResult
 import com.wacmob.inker.databinding.FragmentOtpBinding
+import com.wacmob.inker.models.OtpSubmitRequest
 import com.wacmob.inker.preferences.PreferenceHandler
-import com.wacmob.inker.viewmodels.AuthViewModel
+import com.wacmob.inker.ui.main.MainActivity
+import com.wacmob.inker.utils.DialogUtils
+import com.wacmob.inker.utils.findNavController
+import com.wacmob.inker.utils.hide
+import com.wacmob.inker.utils.show
 import com.wacmob.inker.viewmodels.OtpViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import android.view.View.OnFocusChangeListener
-
-import android.view.View.OnTouchListener
-import com.wacmob.inker.ui.main.MainActivity
-import androidx.activity.OnBackPressedCallback
-import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
-import com.wacmob.inker.baseresult.BaseResult
-import com.wacmob.inker.models.OtpSubmitRequest
-import com.wacmob.inker.utils.*
-
 
 @AndroidEntryPoint
-class OtpFragment : Fragment() {
+class OtpFragmentNew : Fragment() {
+
+
     @Inject
     lateinit var preferenceHandler: PreferenceHandler
     private var mobileNumber: String? = null
@@ -154,10 +152,10 @@ class OtpFragment : Fragment() {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                  if (binding.errorText2.isVisible)
-                  {
-                      binding.errorText2.hide()
-                  }
+                if (binding.errorText2.isVisible)
+                {
+                    binding.errorText2.hide()
+                }
                 if (p0.toString().length == 6) {
                     /* binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
                          R.color.valid_border_color))
@@ -240,5 +238,6 @@ class OtpFragment : Fragment() {
         hideLoading()
         mProgressDialog = DialogUtils.showLoadingDialog(requireContext())
     }
+
 
 }

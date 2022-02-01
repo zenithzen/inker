@@ -2,18 +2,17 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_graph"
-    app:startDestination="@id/leaderBordFragment">
-
-    <fragment
-        android:id="@+id/leaderBordFragment"
-        android:name="com.wacmob.inker.ui.leaderbord.LeaderBordFragment"
-        android:label="LeaderBordFragment" >
-        <action
-            android:id="@+id/action_leaderBordFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
-    </fragment>
+    app:startDestination="@id/dashboardFragment">
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.wacmob.inker.ui.dash.DashboardFragment"
-        android:label="DashboardFragment" />
+        android:label="DashboardFragment" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_leaderBordFragment2"
+            app:destination="@id/leaderBordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leaderBordFragment"
+        android:name="com.wacmob.inker.ui.leaderbord.LeaderBordFragment"
+        android:label="LeaderBordFragment" />
 </navigation>

@@ -124,7 +124,7 @@ class LeaderBordFragment : Fragment(), View.OnClickListener {
 
             binding.title->{
 
-                findNavController().navigate(com.wacmob.inker.R.id.action_leaderBordFragment_to_dashboardFragment)
+              //  findNavController().navigate(com.wacmob.inker.R.id.action_leaderBordFragment_to_dashboardFragment)
             }
         }
     }
