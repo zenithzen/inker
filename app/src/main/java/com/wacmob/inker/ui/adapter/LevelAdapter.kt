@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.wacmob.inker.R
 import com.wacmob.inker.databinding.RecycleItem1Binding
+import com.wacmob.inker.models.Badge
 import com.wacmob.inker.models.LevelData
 
 class LevelAdapter(val context: Context) : RecyclerView.Adapter<LevelAdapter.LevelViewHolder>() {
@@ -18,13 +19,13 @@ class LevelAdapter(val context: Context) : RecyclerView.Adapter<LevelAdapter.Lev
         val item1Binding = binding
     }
 
-    val differCallback = object : DiffUtil.ItemCallback<LevelData>() {
-        override fun areItemsTheSame(oldItem: LevelData, newItem: LevelData): Boolean {
-            return oldItem.id == newItem.id
+    val differCallback = object : DiffUtil.ItemCallback<Badge>() {
+        override fun areItemsTheSame(oldItem: Badge, newItem: Badge): Boolean {
+            return oldItem.badge_image_full_url == newItem.badge_image_full_url
 
         }
 
-        override fun areContentsTheSame(oldItem: LevelData, newItem: LevelData): Boolean {
+        override fun areContentsTheSame(oldItem: Badge, newItem: Badge): Boolean {
             return oldItem == newItem
         }
 
@@ -32,7 +33,7 @@ class LevelAdapter(val context: Context) : RecyclerView.Adapter<LevelAdapter.Lev
     }
 
     val differ = AsyncListDiffer(this, differCallback)
-    fun submitList(list: List<LevelData>) {
+    fun submitList(list: List<Badge>) {
         differ.submitList(list)
     }
 
@@ -47,7 +48,7 @@ class LevelAdapter(val context: Context) : RecyclerView.Adapter<LevelAdapter.Lev
         val data = differ.currentList[position]
         val itemBinding = holder.item1Binding
         itemBinding.item = data
-        data.images?.let { itemBinding.cornerIV.setImageResource(it) }
+
     }
 
     override fun getItemCount(): Int {

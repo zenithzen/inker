@@ -14,6 +14,10 @@ class PreferenceHandler @Inject constructor(
         get() = sharedPreferences.getString("token", "") ?: ""
         set(value) = sharedPreferences.edit { putString("token", value) }
 
+    var userId: String
+        get() = sharedPreferences.getString("userId", "") ?: ""
+        set(value) = sharedPreferences.edit { putString("userId", value) }
+
     var userName: String
         get() = sharedPreferences.getString("userName", "") ?: ""
         set(value) = sharedPreferences.edit { putString("userName", value) }

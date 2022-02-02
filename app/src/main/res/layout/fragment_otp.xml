@@ -131,18 +131,196 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/firstPinView"
             android:layout_width="0dp"
-            android:layout_marginTop="26dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="26dp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mobileNumber">
 
+
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/eT1"
-                android:layout_marginEnd="10dp"
+
                 android:layout_width="48dp"
                 android:layout_height="55dp"
+                android:background="@drawable/otp_selector"
+                android:fontFamily="@font/bai_jamjuree_medium"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/eT2"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/eT2"
+                android:layout_width="48dp"
+                android:layout_height="55dp"
+                android:background="@drawable/otp_selector"
+                android:fontFamily="@font/bai_jamjuree_medium"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/eT3"
+                app:layout_constraintStart_toEndOf="@+id/eT1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/eT3"
+                android:layout_width="48dp"
+                android:layout_height="55dp"
+
+
+                android:background="@drawable/otp_selector"
+                android:fontFamily="@font/bai_jamjuree_medium"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/eT4"
+                app:layout_constraintStart_toEndOf="@+id/eT2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/eT4"
+                android:layout_width="48dp"
+                android:layout_height="55dp"
+
+                android:background="@drawable/otp_selector"
+                android:fontFamily="@font/bai_jamjuree_medium"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/eT5"
+                app:layout_constraintStart_toEndOf="@+id/eT3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/eT5"
+                android:layout_width="48dp"
+                android:layout_height="55dp"
+
+                android:background="@drawable/otp_selector"
+                android:fontFamily="@font/bai_jamjuree_medium"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/eT6"
+                app:layout_constraintStart_toEndOf="@+id/eT4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/eT6"
+                android:layout_width="48dp"
+                android:layout_height="55dp"
+
+                android:background="@drawable/otp_selector"
+                android:fontFamily="@font/bai_jamjuree_medium"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/eT5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--    <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:weightSum="6"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/eT1"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:fontFamily="@font/bai_jamjuree_medium"
+                    android:textSize="20sp"
+                    android:background="@drawable/otp_selector"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/eT2"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:fontFamily="@font/bai_jamjuree_medium"
+                    android:textSize="20sp"
+                    android:background="@drawable/otp_selector"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/eT3"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:fontFamily="@font/bai_jamjuree_medium"
+                    android:textSize="20sp"
+                    android:background="@drawable/otp_selector"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/eT4"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:fontFamily="@font/bai_jamjuree_medium"
+                    android:textSize="20sp"
+                    android:background="@drawable/otp_selector"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/eT5"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:fontFamily="@font/bai_jamjuree_medium"
+                    android:textSize="20sp"
+                    android:background="@drawable/otp_selector"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/eT6"
+                    android:layout_weight="1"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:fontFamily="@font/bai_jamjuree_medium"
+                    android:textSize="20sp"
+                    android:background="@drawable/otp_selector"/>
+
+            </LinearLayout>-->
+
+            <!-- <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/eT1"
+                android:layout_marginEnd="10dp"
+                android:layout_width="44dp"
+                android:layout_height="53dp"
                 android:gravity="center"
                 android:inputType="number"
                 android:maxLength="1"
@@ -154,8 +332,8 @@
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/eT2"
                 android:layout_marginHorizontal="10dp"
-                android:layout_width="48dp"
-                android:layout_height="55dp"
+                android:layout_width="44dp"
+                android:layout_height="53dp"
                 android:inputType="number"
                 android:maxLength="1"
                 android:gravity="center"
@@ -166,9 +344,11 @@
                 app:layout_constraintTop_toTopOf="parent"/>
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/eT3"
-                android:layout_width="48dp"
+                android:layout_width="44dp"
+                android:layout_height="53dp"
                 android:layout_marginHorizontal="10dp"
-                android:layout_height="55dp"
+
+
                 android:inputType="number"
                 android:maxLength="1"
                 android:gravity="center"
@@ -180,8 +360,8 @@
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/eT4"
                 android:layout_marginHorizontal="10dp"
-                android:layout_width="48dp"
-                android:layout_height="55dp"
+                android:layout_width="44dp"
+                android:layout_height="53dp"
                 android:gravity="center"
                 android:inputType="number"
                 android:maxLength="1"
@@ -193,8 +373,8 @@
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/eT5"
                 android:layout_marginHorizontal="10dp"
-                android:layout_width="48dp"
-                android:layout_height="55dp"
+                android:layout_width="44dp"
+                android:layout_height="53dp"
                 android:inputType="number"
                 android:maxLength="1"
                 android:gravity="center"
@@ -205,9 +385,8 @@
                 app:layout_constraintTop_toTopOf="parent"/>
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/eT6"
-                android:layout_width="48dp"
-                android:layout_height="55dp"
-
+                android:layout_width="44dp"
+                android:layout_height="53dp"
                 android:inputType="number"
                 android:maxLength="1"
                 android:gravity="center"
@@ -216,7 +395,7 @@
                 android:textSize="20sp"
                 android:background="@drawable/otp_selector"
                 app:layout_constraintStart_toEndOf="@+id/eT5"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"/>-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

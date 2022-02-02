@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.wacmob.inker.models.LevelData" />
+            type="com.wacmob.inker.models.Badge" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@ android:layout_marginVertical="8dp"
             android:id="@+id/cornerIV"
             android:layout_width="68dp"
             android:layout_height="68dp"
-
+           imageUrl="@{item.badge_image_full_url}"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

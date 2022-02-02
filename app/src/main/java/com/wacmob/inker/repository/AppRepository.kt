@@ -25,5 +25,7 @@ class AppRepository @Inject constructor(
     //for room DataBase
     suspend fun insertStudentData(student: StudentEntity) = appLocalRoomDatabaseDao.insert(student)
     suspend fun fetchStudents() = appLocalRoomDatabaseDao.fetch()
+    suspend fun getDashBordData(profile_id: String) =
+        safeApiCall { apiHelper.getDashBordData(profile_id) }
 
 }

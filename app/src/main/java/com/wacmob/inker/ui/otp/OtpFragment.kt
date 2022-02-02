@@ -139,12 +139,14 @@ class OtpFragment : Fragment(), AutoCheckListener {
                            R.color.valid_border_color))*/
                     timer.cancel()
                     if (it?.data?.data != null && it?.data?.code == 200) {
+
                         preferenceHandler.mobileNumber = it?.data?.data?.user?.mobile.toString()
                         preferenceHandler.countryCode =
                             it?.data?.data?.user?.phone_country_code.toString()
                         preferenceHandler.userCode = it?.data?.data?.user?.user_code.toString()
                         preferenceHandler.userName = it?.data?.data?.user?.user_code.toString()
                         preferenceHandler.userToken = it?.data?.data?.access_token.toString()
+                        preferenceHandler.userId = it?.data?.data?.user?.id.toString()
                         preferenceHandler.isLogged = true
 
 
@@ -161,8 +163,8 @@ class OtpFragment : Fragment(), AutoCheckListener {
 
                     setErrorBackground()
                     hideLoading()
-                    binding.eT6.requestFocus()
-                    showKeyboard()
+                    // binding.eT6.requestFocus()
+                    // showKeyboard()
                     /*   binding.firstPinView.setLineColor(ContextCompat.getColor(requireContext(),
                            R.color.error_color))*/
                     binding.errorText2.show()
@@ -262,7 +264,7 @@ class OtpFragment : Fragment(), AutoCheckListener {
     }
 
     override fun onDestroy() {
-hideKeyboard()
+        hideKeyboard()
         super.onDestroy()
 
 
@@ -343,8 +345,7 @@ hideKeyboard()
     }
 
     override fun checkAllFieldsFilled() {
-        if (binding.errorText2.isVisible)
-        {
+        if (binding.errorText2.isVisible) {
             binding.errorText2.hide()
         }
         if (isOtpViewFilled()) {

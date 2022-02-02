@@ -4,14 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data></data>
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
-        tools:context=".ui.dash.DashboardFragment">
 
+        tools:context=".ui.dash.DashboardFragment">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,11 +49,14 @@
 
 
             <androidx.cardview.widget.CardView
+                android:visibility="gone"
+                android:id="@+id/points"
                 android:layout_width="wrap_content"
-                android:minWidth="78dp"
                 android:layout_height="39dp"
                 android:layout_marginHorizontal="18dp"
                 android:background="#FFFFFF"
+                android:minWidth="78dp"
+                android:onClick="@{listener.onClick}"
                 app:cardCornerRadius="29dp"
                 app:cardElevation="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -58,6 +67,7 @@
                 >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -73,13 +83,14 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/gamePoints"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="11dp"
                         android:fontFamily="@font/bai_jamjuree_bold"
-                           android:layout_marginHorizontal="11dp"
                         android:gravity="center"
-                        android:text="20"
                         android:singleLine="true"
+                        android:text="20"
                         android:textColor="@color/recycler_item_text_color"
                         android:textSize="14sp"
 
@@ -88,8 +99,6 @@
                         app:layout_constraintStart_toEndOf="@+id/crownIcon"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
             </androidx.cardview.widget.CardView>
@@ -200,6 +209,7 @@
             app:layout_constraintTop_toBottomOf="@+id/toolBarLayout" />
 
         <androidx.core.widget.NestedScrollView
+
             android:id="@+id/scrollView"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -225,12 +235,23 @@
                     android:id="@+id/dashData"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginStart="18dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <View
+                    android:id="@+id/recyclerDivider"
+                    android:layout_width="0dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#F5F5F5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dashData" />
+
                 <TextView
+
                     android:id="@+id/titleData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -242,12 +263,13 @@
                     android:textColor="@color/heading_text_color"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/dashData"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerDivider"
 
                     />
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:visibility="gone"
                     android:id="@+id/badgeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -314,6 +336,7 @@
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:visibility="gone"
                     android:id="@+id/steakLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -383,10 +406,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="18dp"
-
                     android:layout_marginTop="8dp"
+
                     android:background="@drawable/recycler_item_bg1"
                     android:minHeight="76dp"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/steakLayout">
@@ -444,15 +468,15 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/noTitleLayout"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="18dp"
 
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/reycler_item_bg2"
+                    android:background="@drawable/recycler_item_bg1"
                     android:minHeight="76dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -516,10 +540,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="18dp"
-
                     android:layout_marginTop="8dp"
                     android:background="@drawable/recycler_item_bg1"
                     android:minHeight="76dp"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/noTitleLayout">
@@ -577,16 +601,15 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/freezSteakLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="18dp"
-
                     android:layout_marginTop="8dp"
                     android:background="@drawable/reycler_item_bg2"
                     android:minHeight="76dp"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/redeemedLayout">
@@ -648,8 +671,8 @@
 
                     android:layout_width="0dp"
                     android:layout_height="4dp"
-                    android:background="#F5F5F5"
                     android:layout_marginTop="16dp"
+                    android:background="#F5F5F5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/freezSteakLayout" />
@@ -657,9 +680,10 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cueLayout"
                     android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_height="190dp"
+
                     app:layout_constraintEnd_toStartOf="@+id/midDivide"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/subDivider1">
 
                     <TextView
@@ -667,45 +691,47 @@
 
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:fontFamily="@font/bai_jamjuree_semi_bold"
-                        android:textSize="14sp"
                         android:layout_marginTop="24dp"
+                        android:fontFamily="@font/bai_jamjuree_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/Cues_Completed"
                         android:textColor="@color/black"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:text="@string/Cues_Completed"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:visibility="gone"
                         android:id="@+id/cueProgressBar"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        app:cpb_progress="60"
                         app:cpb_background_progressbar_color="#71E9FF"
                         app:cpb_background_progressbar_width="10dp"
+                        app:cpb_progress="4"
                         app:cpb_progress_direction="to_right"
+                        app:cpb_progress_max="5"
                         app:cpb_progressbar_color="#27A4FF"
                         app:cpb_progressbar_width="10dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                       app:layout_constraintTop_toBottomOf="@+id/cueTitle"
+                        app:cpb_round_border="false"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:cpb_round_border="false" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cueTitle" />
 
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/cueSubTitle"
                         android:layout_width="wrap_content"
-                        android:textSize="27dp"
                         android:layout_height="wrap_content"
-                        android:text="34"
                         android:fontFamily="@font/bai_jamjuree_semi_bold"
+                        android:text="34"
                         android:textColor="#121212"
-                        app:layout_constraintStart_toStartOf="@+id/cueProgressBar"
-                        app:layout_constraintEnd_toEndOf="@id/cueProgressBar"
-                        app:layout_constraintTop_toTopOf="@id/cueProgressBar"
+                        android:textSize="27dp"
                         app:layout_constraintBottom_toBottomOf="@id/cueProgressBar"
-                        />
+                        app:layout_constraintEnd_toEndOf="@id/cueProgressBar"
+                        app:layout_constraintStart_toStartOf="@+id/cueProgressBar"
+                        app:layout_constraintTop_toTopOf="@id/cueProgressBar" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -713,54 +739,56 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/flashCard"
                     android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    app:layout_constraintStart_toEndOf="@+id/midDivide"
+                    android:layout_height="190dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/midDivide"
                     app:layout_constraintTop_toBottomOf="@+id/subDivider1">
+
                     <TextView
                         android:id="@+id/flashTitle"
 
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:fontFamily="@font/bai_jamjuree_semi_bold"
-                        android:textSize="14sp"
                         android:layout_marginTop="24dp"
+                        android:fontFamily="@font/bai_jamjuree_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/Flashcard_Collected"
                         android:textColor="@color/black"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:text="@string/Flashcard_Collected"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:visibility="gone"
                         android:id="@+id/flashProgressBar"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        app:cpb_progress="60"
                         app:cpb_background_progressbar_color="#C9C9F8"
                         app:cpb_background_progressbar_width="10dp"
+                        app:cpb_progress="60"
                         app:cpb_progress_direction="to_right"
                         app:cpb_progressbar_color="#6B6BE5"
                         app:cpb_progressbar_width="10dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/flashTitle"
+                        app:cpb_round_border="false"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:cpb_round_border="false" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/flashTitle" />
 
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/flashSubTitle"
                         android:layout_width="wrap_content"
-                        android:textSize="27dp"
                         android:layout_height="wrap_content"
-                        android:text="34"
                         android:fontFamily="@font/bai_jamjuree_semi_bold"
+                        android:text="34"
                         android:textColor="#121212"
-                        app:layout_constraintStart_toStartOf="@+id/flashProgressBar"
-                        app:layout_constraintEnd_toEndOf="@id/flashProgressBar"
-                        app:layout_constraintTop_toTopOf="@id/flashProgressBar"
+                        android:textSize="27dp"
                         app:layout_constraintBottom_toBottomOf="@id/flashProgressBar"
-                        />
+                        app:layout_constraintEnd_toEndOf="@id/flashProgressBar"
+                        app:layout_constraintStart_toStartOf="@+id/flashProgressBar"
+                        app:layout_constraintTop_toTopOf="@id/flashProgressBar" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -772,9 +800,9 @@
                     android:layout_height="0dp"
                     android:background="#F5F5F5"
 
+                    app:layout_constraintBottom_toBottomOf="@+id/flashCard"
                     app:layout_constraintEnd_toEndOf="@id/midDivide"
                     app:layout_constraintStart_toStartOf="@id/midDivide"
-                    app:layout_constraintBottom_toBottomOf="@+id/flashCard"
                     app:layout_constraintTop_toTopOf="@+id/flashCard" />
 
 
@@ -787,56 +815,58 @@
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                  app:layout_constraintTop_toBottomOf="@+id/flashCard"
-                   />
+                    app:layout_constraintTop_toBottomOf="@+id/flashCard" />
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/MechanicalLayout"
+
                     android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_height="190dp"
                     app:layout_constraintEnd_toStartOf="@+id/midDivide"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/subDivider3">
 
                     <TextView
                         android:id="@+id/mechTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:fontFamily="@font/bai_jamjuree_semi_bold"
-                        android:textSize="14sp"
                         android:layout_marginTop="24dp"
+                        android:fontFamily="@font/bai_jamjuree_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/Concepts_Learned"
                         android:textColor="@color/black"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:text="@string/Concepts_Learned"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/mechImage"
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
                         android:src="@drawable/mech_icon"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/mechSubTitle"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/mechTitle"
-                        app:layout_constraintBottom_toTopOf="@+id/mechSubTitle"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mechTitle" />
 
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/mechSubTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:fontFamily="@font/bai_jamjuree_bold"
-                        android:textSize="16sp"
                         android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/bai_jamjuree_bold"
+                        android:gravity="center"
+                        android:text="@string/Mechanical"
                         android:textColor="@color/mech_text_color"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                       app:layout_constraintBottom_toBottomOf="parent"
-                        android:text="@string/Mechanical"/>
-
-
+                        app:layout_constraintStart_toStartOf="parent" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -845,51 +875,54 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/timeCard"
                     android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    app:layout_constraintStart_toEndOf="@+id/midDivide"
+                    android:layout_height="190dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/midDivide"
                     app:layout_constraintTop_toBottomOf="@+id/subDivider3">
+
                     <TextView
                         android:id="@+id/timeTitle"
 
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:fontFamily="@font/bai_jamjuree_semi_bold"
-                        android:textSize="14sp"
                         android:layout_marginTop="24dp"
+                        android:fontFamily="@font/bai_jamjuree_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/Time_Spent"
                         android:textColor="@color/black"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:text="@string/Time_Spent"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:visibility="gone"
+                        android:id="@+id/hours"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="34"
                         android:fontFamily="@font/bai_jamjuree_semi_bold"
-                        android:textSize="61sp"
+                        android:text="34"
                         android:textColor="@color/time_text_color"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="61sp"
+                        app:layout_constraintBottom_toTopOf="@+id/timeSubTitle"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/timeTitle"
-                        app:layout_constraintBottom_toTopOf="@+id/timeSubTitle"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/timeTitle" />
 
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/timeSubTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:fontFamily="@font/bai_jamjuree_bold"
-                        android:textSize="16sp"
                         android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/bai_jamjuree_bold"
+                        android:gravity="center"
+                        android:text="@string/Hours"
                         android:textColor="@color/time_text_color"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:text="@string/Hours"/>
-
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -902,20 +935,13 @@
                     android:layout_height="0dp"
                     android:background="#F5F5F5"
 
+                    app:layout_constraintBottom_toBottomOf="@+id/timeCard"
                     app:layout_constraintEnd_toEndOf="@id/midDivide"
                     app:layout_constraintStart_toStartOf="@id/midDivide"
-                    app:layout_constraintBottom_toBottomOf="@+id/timeCard"
                     app:layout_constraintTop_toTopOf="@+id/timeCard" />
 
 
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
 
 
         </androidx.core.widget.NestedScrollView>

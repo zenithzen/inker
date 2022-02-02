@@ -15,6 +15,7 @@ import com.wacmob.inker.utils.Constants.Companion.ROOM_DATABASE_NAME
 import com.wacmob.inker.utils.Constants.Companion.SHARED_PREFERENCE_KEY
 import com.wacmob.inker.utils.StylishToastyUtils
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.wacmob.inker.utils.AuthorizationInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,6 +27,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -42,11 +44,22 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(preferenceHandler: PreferenceHandler): OkHttpClient {
+       /* val loggingInterceptor = HttpLoggingInterceptor()
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        return OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()*/
+
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .connectTimeout(
+                30, TimeUnit.SECONDS
+            ).writeTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .addInterceptor(AuthorizationInterceptor(preferenceHandler))
             .build()
     }
 

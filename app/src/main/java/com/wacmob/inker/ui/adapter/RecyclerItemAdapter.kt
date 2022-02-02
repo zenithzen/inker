@@ -79,7 +79,7 @@ class RecyclerItemAdapter(val context: Context) :
         }
 
         else {
-            binding.baseRecyclerView.setHasFixedSize(true)
+           /* binding.baseRecyclerView.setHasFixedSize(true)
             binding.baseRecyclerView.layoutManager = LinearLayoutManager(context,
                 LinearLayoutManager.HORIZONTAL,
                 false)
@@ -87,7 +87,7 @@ class RecyclerItemAdapter(val context: Context) :
             binding.baseRecyclerView.adapter = adapter
             adapter.differ.submitList(data.levelList)
             adapter.notifyDataSetChanged()
-            binding.title.hide()
+            binding.title.hide()*/
         }
 
 

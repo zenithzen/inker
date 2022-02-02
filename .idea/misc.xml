@@ -11,6 +11,7 @@
         <entry key="..\:/Inker/app/src/main/res/drawable/drawable_back_btn.xml" value="0.16905537459283387" />
         <entry key="..\:/Inker/app/src/main/res/drawable/drawable_default_box.xml" value="0.16905537459283387" />
         <entry key="..\:/Inker/app/src/main/res/drawable/drawable_error_box.xml" value="0.16905537459283387" />
+        <entry key="..\:/Inker/app/src/main/res/drawable/drawable_medal_list.xml" value="0.23425925925925925" />
         <entry key="..\:/Inker/app/src/main/res/drawable/drawable_yellow_box.xml" value="0.16905537459283387" />
         <entry key="..\:/Inker/app/src/main/res/drawable/drop_shadow.xml" value="0.16905537459283387" />
         <entry key="..\:/Inker/app/src/main/res/drawable/edittext_default_bg.xml" value="0.26256410256410256" />
@@ -48,5 +49,5 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

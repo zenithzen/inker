@@ -1,10 +1,9 @@
 package com.wacmob.inker.remoteservice
 
 import com.wacmob.inker.models.*
+import com.wacmob.inker.utils.AuthorizationInterceptor
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -16,4 +15,24 @@ interface ApiService {
 
     @POST("auth/login/otp")
     suspend fun submitOtp(@Body otpSubmitRequest: OtpSubmitRequest): Response<OtpResponse>
+
+   /* @GET("user/profiles/{profile_id}/dashboard")
+    suspend fun getDashBordData(
+        @Path("profile_id") profile_id: String,
+        @Tag authorization: AuthorizationInterceptor.AuthorizationType =
+            AuthorizationInterceptor.AuthorizationType.USER_TOKEN,
+    ): Response<DashBoardResponse>
+*/
+    @GET("user/profiles/{profile_id}/dashboard")
+    suspend fun getDashBordData(
+        @Path("profile_id") profile_id: String,
+        @Tag authorization: AuthorizationInterceptor.AuthorizationType =
+            AuthorizationInterceptor.AuthorizationType.USER_TOKEN
+    ): Response<DashBoardResponse>
+
+   /* @GET("user/profiles/{profile_id}/dashboard")
+    suspend fun getDashBordData(
+        @Path("profile_id") profile_id: String,
+       @Header("Authorization") tocken:String
+    ): Response<DashBoardResponse>*/
 }
