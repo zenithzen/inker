@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wacmob.inker.models.DataXXX" />
+        <variable
+            name="position"
+            type="int"/>
+        <variable
+            name="listener"
+            type="com.wacmob.inker.listeners.RecyclerSelectorListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+
+      android:onClick="@{()->listener.onItemSelect(position)}"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginVertical="12dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/normalLayout"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bronzItem"
+            android:layout_width="50dp"
+            android:layout_height="48dp"
+            android:src="@drawable/bronz"
+
+
+            app:layout_constraintEnd_toEndOf="@id/bronzText"
+            app:layout_constraintStart_toStartOf="@id/bronzText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bronzText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/bai_jamjuree_semi_bold"
+            android:gravity="center"
+            android:text="@{item.name}"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bronzItem" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:visibility="gone"
+            android:id="@+id/largeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/bronzItemLarge"
+                android:layout_width="68dp"
+                android:layout_height="66dp"
+                android:src="@drawable/bronz"
+
+
+                app:layout_constraintEnd_toEndOf="@id/bronzTextLarge"
+                app:layout_constraintStart_toStartOf="@id/bronzTextLarge"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/bronzTextLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bai_jamjuree_bold"
+                android:gravity="center"
+                android:text="@{item.name}"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bronzItemLarge" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+</layout>

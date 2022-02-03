@@ -3,9 +3,11 @@ package com.wacmob.inker.repository
 import com.wacmob.inker.baseresult.safeApiCall
 import com.wacmob.inker.localdatabaseservice.AppLocalRoomDatabaseDao
 import com.wacmob.inker.localdatabaseservice.entities.StudentEntity
+import com.wacmob.inker.models.ClubListResponse
 import com.wacmob.inker.models.LoginRequest
 import com.wacmob.inker.models.OtpSubmitRequest
 import com.wacmob.inker.remoteservice.ApiHelper
+import retrofit2.Response
 import javax.inject.Inject
 
 class AppRepository @Inject constructor(
@@ -27,5 +29,8 @@ class AppRepository @Inject constructor(
     suspend fun fetchStudents() = appLocalRoomDatabaseDao.fetch()
     suspend fun getDashBordData(profile_id: String) =
         safeApiCall { apiHelper.getDashBordData(profile_id) }
+
+
+    suspend fun getClubList() = safeApiCall { apiHelper.getClubList() }
 
 }

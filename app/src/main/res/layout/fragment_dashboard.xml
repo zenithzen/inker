@@ -33,10 +33,24 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_marginStart="18dp"
-                android:src="@drawable/alpha_bg"
+                android:src="@drawable/profile_bg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/firstLetter"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@id/letterBg"
+                app:layout_constraintEnd_toEndOf="@id/letterBg"
+               android:text="S"
+                app:layout_constraintTop_toTopOf="@id/letterBg"
+                app:layout_constraintBottom_toBottomOf="@id/letterBg"
+                android:textColor="@color/recycler_item_text_color"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                android:fontFamily="@font/titillium_web_bold"/>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="90dp"
@@ -269,7 +283,7 @@
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:visibility="gone"
+
                     android:id="@+id/badgeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -284,12 +298,12 @@
 
                     <ImageView
                         android:id="@+id/icon"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
                         android:layout_marginStart="18dp"
 
                         android:scaleType="fitXY"
-                        android:src="@drawable/badge_icon"
+                        android:src="@drawable/ic_badge_new"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -336,7 +350,7 @@
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:visibility="gone"
+
                     android:id="@+id/steakLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -351,12 +365,12 @@
 
                     <ImageView
                         android:id="@+id/steakIcon"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
                         android:layout_marginStart="18dp"
 
                         android:scaleType="fitXY"
-                        android:src="@drawable/perform_item2"
+                        android:src="@drawable/steak_new_icon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -470,7 +484,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/noTitleLayout"
-                    android:visibility="gone"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="18dp"
@@ -484,12 +498,12 @@
 
                     <ImageView
                         android:id="@+id/iconData"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
                         android:layout_marginStart="18dp"
 
                         android:scaleType="fitXY"
-                        android:src="@drawable/perform_item4"
+                        android:src="@drawable/ic_empty_icon_new"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"

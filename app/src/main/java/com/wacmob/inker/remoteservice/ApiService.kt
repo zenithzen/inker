@@ -16,23 +16,18 @@ interface ApiService {
     @POST("auth/login/otp")
     suspend fun submitOtp(@Body otpSubmitRequest: OtpSubmitRequest): Response<OtpResponse>
 
-   /* @GET("user/profiles/{profile_id}/dashboard")
+
+    @GET("user/profiles/{profile_id}/dashboard")
     suspend fun getDashBordData(
         @Path("profile_id") profile_id: String,
         @Tag authorization: AuthorizationInterceptor.AuthorizationType =
             AuthorizationInterceptor.AuthorizationType.USER_TOKEN,
     ): Response<DashBoardResponse>
-*/
-    @GET("user/profiles/{profile_id}/dashboard")
-    suspend fun getDashBordData(
-        @Path("profile_id") profile_id: String,
-        @Tag authorization: AuthorizationInterceptor.AuthorizationType =
-            AuthorizationInterceptor.AuthorizationType.USER_TOKEN
-    ): Response<DashBoardResponse>
 
-   /* @GET("user/profiles/{profile_id}/dashboard")
-    suspend fun getDashBordData(
-        @Path("profile_id") profile_id: String,
-       @Header("Authorization") tocken:String
-    ): Response<DashBoardResponse>*/
+
+    @GET("user/club-type-list")
+    suspend fun getClubList(
+        @Tag authorization: AuthorizationInterceptor.AuthorizationType =
+            AuthorizationInterceptor.AuthorizationType.USER_TOKEN,
+    ):Response<ClubListResponse>
 }

@@ -46,8 +46,8 @@ class SplashScreen : AppCompatActivity() {
 
         }
 
-        //val uri: Uri = Uri.parse("android.resource://" + packageName + "/" + com.wacmob.inker.R.raw.inker)
-        val uri = Uri.parse(videoUrl)
+        val uri: Uri = Uri.parse("android.resource://" + packageName + "/" + com.wacmob.inker.R.raw.inker_app_video)
+        /*val uri = Uri.parse(videoUrl)*/
         binding.videoView.setVideoURI(uri)
         binding.videoView.start()
 

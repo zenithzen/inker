@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
+import androidx.compose.ui.text.toUpperCase
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.wacmob.inker.R
@@ -58,7 +59,7 @@ class DashboardFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.listener = this
-        setUpData()
+
         viewModel.getDashBordData.observe(viewLifecycleOwner, {
             when (it.status) {
                 BaseResult.Status.SUCCESS -> {
@@ -99,7 +100,10 @@ class DashboardFragment : Fragment(), View.OnClickListener {
                             binding.cueSubTitle.hide()
                         }
 
-
+                      if (data.name!=null && data.name.isNotEmpty())
+                      {
+                          binding.firstLetter.text= data.name.toString()[0].toString().toUpperCase()
+                      }
 
                         if (data.total_flashcards != null && data.completed_flashcards_count != null) {
                             binding.flashProgressBar.show()
@@ -166,6 +170,7 @@ class DashboardFragment : Fragment(), View.OnClickListener {
 
 
                     }
+
 
 
                 }

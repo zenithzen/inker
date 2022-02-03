@@ -20,20 +20,26 @@ import android.graphics.Typeface
 import androidx.core.content.ContextCompat
 
 import androidx.core.content.res.ResourcesCompat
-import com.wacmob.inker.utils.TextDrawable
-import com.wacmob.inker.utils.findNavController
-import com.wacmob.inker.utils.hide
-import com.wacmob.inker.utils.show
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.wacmob.inker.baseresult.BaseResult
+import com.wacmob.inker.listeners.RecyclerSelectorListener
+import com.wacmob.inker.models.DataXXX
+import com.wacmob.inker.ui.adapter.ClubListAdapter
+import com.wacmob.inker.utils.*
+import androidx.recyclerview.widget.RecyclerView
 
 
 @AndroidEntryPoint
-class LeaderBordFragment : Fragment(), View.OnClickListener {
+class LeaderBordFragment : Fragment(), View.OnClickListener, RecyclerSelectorListener {
     private val viewModel: LeaderBordViewModel by viewModels()
 
 
     @Inject
     lateinit var preferenceHandler: PreferenceHandler
+    private lateinit var adapter: ClubListAdapter
+    var clubList: ArrayList<DataXXX>? = null
 
+    var selectedPos = 0;
     val binding: FragmentLeaderBordBinding by viewBinding()
 
 
@@ -53,18 +59,62 @@ class LeaderBordFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.listener = this
-        println("@AUTH-->"+preferenceHandler.userToken)
+        setUpRecyclerView()
+
+        binding.clubList.setOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                for (i in clubList?.indices!!) {
+                    if (clubList?.get(i)?.isSelected == true) {
+                        binding.clubList.post { adapter.notifyItemChanged(i) }
+                    }
+                }
+            }
+        })
+        viewModel.getClubListLiveData.observe(viewLifecycleOwner, {
+
+            when (it.status) {
+                BaseResult.Status.SUCCESS -> {
+                    //  println("@SUCCESS" + "YES"+it.data?.data?.size)
+                    if (it?.data?.data != null) {
+                        if (it?.data?.data.isNotEmpty()) {
+                            clubList = arrayListOf()
+                            clubList?.addAll(it?.data?.data)
+                            if (clubList?.isNotEmpty() == true) {
+                                clubList?.get(0)?.isSelected = true
+                                selectedPos = 0
+                            }
+                            clubList?.removeAt(5)
+                            clubList?.removeAt(4)
+                            clubList?.removeAt(3)
+                            adapter.differ.submitList(clubList)
+                            adapter.notifyDataSetChanged()
+                        }
+                    }
+
+
+                }
+                BaseResult.Status.ERROR -> {
+                    //println("@SUCCESS" + "ERR" + it.message)
+
+                }
+
+                BaseResult.Status.LOADING -> {
+                    //println("@SUCCESS" + "LOADING")
+
+                }
+            }
+        })
+
+        viewModel.getClubList()
 
         try {
-            binding.circularStatusView.setPortionsCount(3)
-            binding.circularStatusView.setPortionColorForIndex(0,Color.parseColor("#E80000"))
-            binding.circularStatusView.setPortionColorForIndex(1,Color.parseColor("#9F60B2"))
-            binding.circularStatusView.setPortionColorForIndex(2,Color.parseColor("#00B17A"))
+            /* binding.circularStatusView.setPortionsCount(3)
+             binding.circularStatusView.setPortionColorForIndex(0,Color.parseColor("#E80000"))
+             binding.circularStatusView.setPortionColorForIndex(1,Color.parseColor("#9F60B2"))
+             binding.circularStatusView.setPortionColorForIndex(2,Color.parseColor("#00B17A"))*/
 
-        }catch (e:Exception)
-
-        {
-            println("@EXP"+e.message)
+        } catch (e: Exception) {
+            println("@EXP" + e.message)
         }
 
 
@@ -89,43 +139,40 @@ class LeaderBordFragment : Fragment(), View.OnClickListener {
 
     }
 
+    private fun setUpRecyclerView() {
+         binding.clubList.itemAnimator=null
+        binding.clubList.setHasFixedSize(true)
+        binding.clubList.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.HORIZONTAL,
+            false)
+        adapter = ClubListAdapter(requireContext(), this)
+        binding.clubList.adapter = adapter
+
+    }
+
 
     override fun onClick(p0: View?) {
-        when (p0) {
-            binding.bronzeLayout -> {
-                binding.bronzeLayout.hide()
-                binding.bronzeLayoutLarge.show()
-                binding.silverLayoutLarge.hide()
-                binding.silverLayout.show()
-                binding.goldLayout.show()
-                binding.goldLayoutLarge.hide()
 
+    }
+
+    override fun onItemSelect(position: Int) {
+
+        if (clubList != null && clubList?.isNotEmpty() == true) {
+            for (i in clubList?.indices!!) {
+                clubList?.get(i)?.isSelected = i == position
+            }
+            if (position != selectedPos) {
+                clubList?.get(selectedPos)?.isSelected = false
+                adapter.differ.submitList(clubList)
+                adapter.notifyItemChanged(position)
+                adapter.notifyItemChanged(selectedPos)
+            }
+            if (position>=2)
+            {
+                clubList?.size?.minus(1)?.let { binding.clubList.scrollToPosition(it) }
             }
 
-            binding.silverLayout -> {
-                binding.bronzeLayout.show()
-                binding.bronzeLayoutLarge.hide()
-                binding.silverLayoutLarge.show()
-                binding.silverLayout.hide()
-                binding.goldLayout.show()
-                binding.goldLayoutLarge.hide()
-
-            }
-
-            binding.goldLayout -> {
-                binding.bronzeLayout.show()
-                binding.bronzeLayoutLarge.hide()
-                binding.silverLayoutLarge.hide()
-                binding.silverLayout.show()
-                binding.goldLayout.hide()
-                binding.goldLayoutLarge.show()
-
-            }
-
-            binding.title->{
-
-              //  findNavController().navigate(com.wacmob.inker.R.id.action_leaderBordFragment_to_dashboardFragment)
-            }
+            selectedPos = position
         }
     }
 }

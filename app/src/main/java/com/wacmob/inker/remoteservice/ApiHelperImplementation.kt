@@ -15,4 +15,5 @@ class ApiHelperImplementation @Inject constructor(
         apiService.submitOtp(otpSubmitRequest)
 
     override suspend fun getDashBordData(profile_id: String): Response<DashBoardResponse> =apiService.getDashBordData(profile_id)
+    override suspend fun getClubList(): Response<ClubListResponse> =apiService.getClubList()
 }
