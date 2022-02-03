@@ -65,6 +65,12 @@ class ClubListAdapter(val context: Context, val listener: RecyclerSelectorListen
         val itemBinding = holder.itemBinding
         itemBinding.normalLayout.show()
         itemBinding.largeLayout.hide()
+        if (differ.currentList.size > 3) {
+            itemBinding.bronzText.minWidth = 0.px
+        } else {
+            itemBinding.bronzText.minWidth = 80.px
+
+        }
         if (data.isSelected) {
             setUnlocked(itemBinding.bronzItem)
 
@@ -124,7 +130,7 @@ class ClubListAdapter(val context: Context, val listener: RecyclerSelectorListen
         itemBinding.position = position
         itemBinding.listener = listener
 
-      //  println("@XX"+position+"--"+itemBinding.bronzItem.measuredWidth+"--"+itemBinding.bronzItem.measuredHeight)
+        //  println("@XX"+position+"--"+itemBinding.bronzItem.measuredWidth+"--"+itemBinding.bronzItem.measuredHeight)
 
     }
 

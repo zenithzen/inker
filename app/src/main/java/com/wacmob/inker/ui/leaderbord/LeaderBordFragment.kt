@@ -27,6 +27,7 @@ import com.wacmob.inker.models.DataXXX
 import com.wacmob.inker.ui.adapter.ClubListAdapter
 import com.wacmob.inker.utils.*
 import androidx.recyclerview.widget.RecyclerView
+import com.wacmob.inker.utils.EqualSpacingItemDecoration
 
 
 @AndroidEntryPoint
@@ -83,9 +84,9 @@ class LeaderBordFragment : Fragment(), View.OnClickListener, RecyclerSelectorLis
                                 clubList?.get(0)?.isSelected = true
                                 selectedPos = 0
                             }
-                            clubList?.removeAt(5)
-                            clubList?.removeAt(4)
-                            clubList?.removeAt(3)
+                                clubList?.removeAt(5)
+                                clubList?.removeAt(4)
+                                clubList?.removeAt(3)
                             adapter.differ.submitList(clubList)
                             adapter.notifyDataSetChanged()
                         }
@@ -140,11 +141,14 @@ class LeaderBordFragment : Fragment(), View.OnClickListener, RecyclerSelectorLis
     }
 
     private fun setUpRecyclerView() {
-         binding.clubList.itemAnimator=null
+        binding.clubList.itemAnimator = null
         binding.clubList.setHasFixedSize(true)
         binding.clubList.layoutManager = LinearLayoutManager(context,
             LinearLayoutManager.HORIZONTAL,
             false)
+
+        /*binding.clubList.addItemDecoration(EqualSpacingItemDecoration(32,
+            EqualSpacingItemDecoration.HORIZONTAL))*/
         adapter = ClubListAdapter(requireContext(), this)
         binding.clubList.adapter = adapter
 
@@ -167,9 +171,12 @@ class LeaderBordFragment : Fragment(), View.OnClickListener, RecyclerSelectorLis
                 adapter.notifyItemChanged(position)
                 adapter.notifyItemChanged(selectedPos)
             }
-            if (position>=2)
-            {
-                clubList?.size?.minus(1)?.let { binding.clubList.scrollToPosition(it) }
+            if (position >= 2) {
+                // clubList?.size?.minus(1)?.let { binding.clubList.scrollToPosition(it) }
+                val sizeSpan = clubList?.size
+                if (sizeSpan != null && position < sizeSpan.minus(1)) {
+                    binding.clubList.scrollToPosition(position + 1)
+                }
             }
 
             selectedPos = position
