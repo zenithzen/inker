@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
-import android.widget.ImageView
 import androidx.fragment.app.viewModels
 
 import com.wacmob.inker.databinding.FragmentLeaderBordBinding
@@ -14,12 +13,9 @@ import com.wacmob.inker.preferences.PreferenceHandler
 import com.wacmob.inker.viewmodels.LeaderBordViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import android.R
 import android.graphics.Color
 import android.graphics.Typeface
-import androidx.core.content.ContextCompat
 
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wacmob.inker.baseresult.BaseResult
 import com.wacmob.inker.listeners.RecyclerSelectorListener
@@ -27,7 +23,8 @@ import com.wacmob.inker.models.DataXXX
 import com.wacmob.inker.ui.adapter.ClubListAdapter
 import com.wacmob.inker.utils.*
 import androidx.recyclerview.widget.RecyclerView
-import com.wacmob.inker.utils.EqualSpacingItemDecoration
+import com.wacmob.inker.models.Leaderboard
+import com.wacmob.inker.ui.adapter.LeaderBordListAdapter
 
 
 @AndroidEntryPoint
@@ -39,6 +36,11 @@ class LeaderBordFragment : Fragment(), View.OnClickListener, RecyclerSelectorLis
     lateinit var preferenceHandler: PreferenceHandler
     private lateinit var adapter: ClubListAdapter
     var clubList: ArrayList<DataXXX>? = null
+    var bgColorList: ArrayList<String>? = arrayListOf()
+    var textColorList: ArrayList<String>? = arrayListOf()
+
+    lateinit var leaderBordList: ArrayList<Leaderboard>
+    lateinit var leaderBoardAdapter: LeaderBordListAdapter
 
     var selectedPos = 0;
     val binding: FragmentLeaderBordBinding by viewBinding()
@@ -46,6 +48,15 @@ class LeaderBordFragment : Fragment(), View.OnClickListener, RecyclerSelectorLis
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        bgColorList?.add("#AFD9FF")
+        bgColorList?.add( "#D0FFE6")
+        bgColorList?.add( "#F4D0FF")
+        bgColorList?.add( "#FFDED0")
+        textColorList?.add("#0094D5")
+        textColorList?.add("#2F8D5B")
+        textColorList?.add("#9F60B2")
+        textColorList?.add("#AC6A4E")
 
     }
 
@@ -80,15 +91,10 @@ class LeaderBordFragment : Fragment(), View.OnClickListener, RecyclerSelectorLis
                         if (it?.data?.data.isNotEmpty()) {
                             clubList = arrayListOf()
                             clubList?.addAll(it?.data?.data)
-                            if (clubList?.isNotEmpty() == true) {
-                                clubList?.get(0)?.isSelected = true
-                                selectedPos = 0
-                            }
-                                clubList?.removeAt(5)
-                                clubList?.removeAt(4)
-                                clubList?.removeAt(3)
-                            adapter.differ.submitList(clubList)
-                            adapter.notifyDataSetChanged()
+
+                            viewModel.getLeaderBordData(preferenceHandler.userId)
+
+
                         }
                     }
 
@@ -104,6 +110,61 @@ class LeaderBordFragment : Fragment(), View.OnClickListener, RecyclerSelectorLis
 
                 }
             }
+        })
+
+        viewModel.getLeaderBordData.observe(viewLifecycleOwner, {
+            when (it.status) {
+                BaseResult.Status.SUCCESS -> {
+
+                    if (it?.data?.data != null) {
+                        if (it?.data?.data?.leaderboard != null && it?.data?.data?.leaderboard.isNotEmpty()) {
+
+                            try {
+                                var selectedPos=0;
+                                binding.leaderList.setHasFixedSize(true)
+                                leaderBoardAdapter = LeaderBordListAdapter(requireContext(),
+                                    preferenceHandler.userId.toInt(),bgColorList,textColorList)
+                                binding.leaderList.adapter = leaderBoardAdapter
+                                leaderBordList = arrayListOf()
+                                leaderBordList.addAll(it?.data?.data?.leaderboard)
+                                if (it?.data?.data?.club != null && clubList != null && clubList?.isNotEmpty() == true) {
+                                    for (i in clubList?.indices!!) {
+                                        clubList?.get(i)?.isSelected =
+                                            clubList?.get(i)?.id == it?.data?.data?.club.id
+
+
+                                      /*  if( clubList?.get(i)?.id == it?.data?.data?.club.id)
+                                        {
+                                            selectedPos=i
+                                        }*/
+                                    }
+                                }
+
+                                adapter.differ.submitList(clubList)
+                                adapter.notifyDataSetChanged()
+                               /* binding.clubList.scrollToPosition(selectedPos)*/
+
+                                leaderBoardAdapter.differ.submitList(leaderBordList)
+                                leaderBoardAdapter.notifyDataSetChanged()
+                            } catch (e: Exception) {
+                                println("@ERRXXR" + e.message)
+                            }
+
+
+                        }
+                    }
+                }
+
+                BaseResult.Status.ERROR -> {
+                    showToast("ERROR")
+
+                }
+                BaseResult.Status.LOADING -> {
+
+                }
+            }
+
+
         })
 
         viewModel.getClubList()
@@ -161,25 +222,25 @@ class LeaderBordFragment : Fragment(), View.OnClickListener, RecyclerSelectorLis
 
     override fun onItemSelect(position: Int) {
 
-        if (clubList != null && clubList?.isNotEmpty() == true) {
-            for (i in clubList?.indices!!) {
-                clubList?.get(i)?.isSelected = i == position
-            }
-            if (position != selectedPos) {
-                clubList?.get(selectedPos)?.isSelected = false
-                adapter.differ.submitList(clubList)
-                adapter.notifyItemChanged(position)
-                adapter.notifyItemChanged(selectedPos)
-            }
-            if (position >= 2) {
-                // clubList?.size?.minus(1)?.let { binding.clubList.scrollToPosition(it) }
-                val sizeSpan = clubList?.size
-                if (sizeSpan != null && position < sizeSpan.minus(1)) {
-                    binding.clubList.scrollToPosition(position + 1)
-                }
-            }
+        /* if (clubList != null && clubList?.isNotEmpty() == true) {
+             for (i in clubList?.indices!!) {
+                 clubList?.get(i)?.isSelected = i == position
+             }
+             if (position != selectedPos) {
+                 clubList?.get(selectedPos)?.isSelected = false
+                 adapter.differ.submitList(clubList)
+                 adapter.notifyItemChanged(position)
+                 adapter.notifyItemChanged(selectedPos)
+             }
+             if (position >= 2) {
+                 // clubList?.size?.minus(1)?.let { binding.clubList.scrollToPosition(it) }
+                 val sizeSpan = clubList?.size
+                 if (sizeSpan != null && position < sizeSpan.minus(1)) {
+                     binding.clubList.scrollToPosition(position + 1)
+                 }
+             }
 
-            selectedPos = position
-        }
+             selectedPos = position
+         }*/
     }
 }

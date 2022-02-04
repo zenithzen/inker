@@ -14,6 +14,7 @@ interface ApiHelper {
 
     suspend fun submitOtp(otpSubmitRequest: OtpSubmitRequest): Response<OtpResponse>
     suspend fun getDashBordData(profile_id: String): Response<DashBoardResponse>
+    suspend fun getLeaderBoardData(profile_id: String): Response<LeaderBoardResponse>
     suspend fun getClubList(): Response<ClubListResponse>
 
 }

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data><variable
+        name="item"
+        type="com.wacmob.inker.models.Leaderboard" /></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp"
+
+                android:fontFamily="@font/bai_jamjuree_semi_bold"
+                android:gravity="center_vertical"
+                android:text="5"
+                android:visibility="invisible"
+                android:textColor="@color/recycler_item_text_color"
+                android:textSize="17sp"
+               app:layout_constraintEnd_toEndOf="@id/rankMedal"
+                app:layout_constraintBottom_toBottomOf="@id/rankMedal"
+                app:layout_constraintStart_toStartOf="@id/rankMedal"
+                app:layout_constraintTop_toTopOf="@id/rankMedal" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/rankMedal"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:paddingVertical="12dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/first_medal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/firstLetter"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginVertical="12dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rankMedal"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/bai_jamjuree_medium"
+                android:gravity="center_vertical"
+                android:text="@{item.name}"
+                android:textColor="@color/recycler_item_text_color"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/firstLetter"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/bai_jamjuree_medium"
+                android:gravity="center_vertical"
+                android:text="@{item.game_points.toString()}"
+                android:textColor="@color/recycler_item_text_color"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

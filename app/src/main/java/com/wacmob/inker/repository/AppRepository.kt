@@ -30,6 +30,10 @@ class AppRepository @Inject constructor(
     suspend fun getDashBordData(profile_id: String) =
         safeApiCall { apiHelper.getDashBordData(profile_id) }
 
+    suspend fun getLeaderBoardData(profile_id: String) = safeApiCall {
+        apiHelper.getLeaderBoardData(profile_id)
+    }
+
 
     suspend fun getClubList() = safeApiCall { apiHelper.getClubList() }
 

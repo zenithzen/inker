@@ -11,6 +11,7 @@
         <entry key="..\:/Inker/app/src/main/res/drawable/drawable_back_btn.xml" value="0.16905537459283387" />
         <entry key="..\:/Inker/app/src/main/res/drawable/drawable_default_box.xml" value="0.16905537459283387" />
         <entry key="..\:/Inker/app/src/main/res/drawable/drawable_error_box.xml" value="0.16905537459283387" />
+        <entry key="..\:/Inker/app/src/main/res/drawable/drawable_leaderboard.xml" value="0.23425925925925925" />
         <entry key="..\:/Inker/app/src/main/res/drawable/drawable_medal_list.xml" value="0.23425925925925925" />
         <entry key="..\:/Inker/app/src/main/res/drawable/drawable_yellow_box.xml" value="0.16905537459283387" />
         <entry key="..\:/Inker/app/src/main/res/drawable/drop_shadow.xml" value="0.16905537459283387" />
@@ -20,6 +21,7 @@
         <entry key="..\:/Inker/app/src/main/res/drawable/ic_back_btn.xml" value="0.16905537459283387" />
         <entry key="..\:/Inker/app/src/main/res/drawable/ic_badge_new.xml" value="0.2703125" />
         <entry key="..\:/Inker/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16905537459283387" />
+        <entry key="..\:/Inker/app/src/main/res/drawable/ic_mask_group_357.xml" value="0.23425925925925925" />
         <entry key="..\:/Inker/app/src/main/res/drawable/inner_round_bg.xml" value="0.26481481481481484" />
         <entry key="..\:/Inker/app/src/main/res/drawable/otp_selector.xml" value="0.24074074074074073" />
         <entry key="..\:/Inker/app/src/main/res/drawable/out_round_bg.xml" value="0.26481481481481484" />
@@ -37,6 +39,7 @@
         <entry key="..\:/Inker/app/src/main/res/layout/fragment_registration.xml" value="0.4" />
         <entry key="..\:/Inker/app/src/main/res/layout/item_club_list.xml" value="0.22871376811594202" />
         <entry key="..\:/Inker/app/src/main/res/layout/item_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Inker/app/src/main/res/layout/item_leaderboard_list.xml" value="0.35813148788927335" />
         <entry key="..\:/Inker/app/src/main/res/layout/layout_video_view.xml" value="0.2441123188405797" />
         <entry key="..\:/Inker/app/src/main/res/layout/leader_board_layout.xml" value="0.16052631578947368" />
         <entry key="..\:/Inker/app/src/main/res/layout/progress_dialog.xml" value="0.25416666666666665" />

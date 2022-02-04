@@ -146,6 +146,7 @@ class OtpFragment : Fragment(), AutoCheckListener {
                         preferenceHandler.userCode = it?.data?.data?.user?.user_code.toString()
                         preferenceHandler.userName = it?.data?.data?.user?.user_code.toString()
                         preferenceHandler.userToken = it?.data?.data?.access_token.toString()
+                        println("@USERID" + it?.data?.data?.user?.id.toString())
                         preferenceHandler.userId = it?.data?.data?.user?.id.toString()
                         preferenceHandler.isLogged = true
 

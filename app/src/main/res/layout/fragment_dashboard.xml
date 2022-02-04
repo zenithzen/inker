@@ -12,6 +12,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:visibility="gone"
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,15 +43,15 @@
                 android:id="@+id/firstLetter"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                app:layout_constraintStart_toStartOf="@id/letterBg"
-                app:layout_constraintEnd_toEndOf="@id/letterBg"
-               android:text="S"
-                app:layout_constraintTop_toTopOf="@id/letterBg"
-                app:layout_constraintBottom_toBottomOf="@id/letterBg"
-                android:textColor="@color/recycler_item_text_color"
+                android:fontFamily="@font/titillium_web_bold"
                 android:gravity="center_vertical"
+
+                android:textColor="@color/recycler_item_text_color"
                 android:textSize="20sp"
-                android:fontFamily="@font/titillium_web_bold"/>
+                app:layout_constraintBottom_toBottomOf="@id/letterBg"
+                app:layout_constraintEnd_toEndOf="@id/letterBg"
+                app:layout_constraintStart_toStartOf="@id/letterBg"
+                app:layout_constraintTop_toTopOf="@id/letterBg" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="90dp"
@@ -63,7 +64,6 @@
 
 
             <androidx.cardview.widget.CardView
-                android:visibility="gone"
                 android:id="@+id/points"
                 android:layout_width="wrap_content"
                 android:layout_height="39dp"
@@ -71,6 +71,7 @@
                 android:background="#FFFFFF"
                 android:minWidth="78dp"
                 android:onClick="@{listener.onClick}"
+                android:visibility="gone"
                 app:cardCornerRadius="29dp"
                 app:cardElevation="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -283,7 +284,7 @@
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-
+android:visibility="gone"
                     android:id="@+id/badgeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -303,7 +304,7 @@
                         android:layout_marginStart="18dp"
 
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_badge_new"
+                        android:src="@drawable/icon_medlalist"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -350,7 +351,7 @@
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-
+android:visibility="gone"
                     android:id="@+id/steakLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -365,12 +366,12 @@
 
                     <ImageView
                         android:id="@+id/steakIcon"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
                         android:layout_marginStart="18dp"
 
                         android:scaleType="fitXY"
-                        android:src="@drawable/steak_new_icon"
+                        android:src="@drawable/stk_icon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -483,6 +484,7 @@
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:visibility="gone"
                     android:id="@+id/noTitleLayout"
 
                     android:layout_width="match_parent"
@@ -498,12 +500,12 @@
 
                     <ImageView
                         android:id="@+id/iconData"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_marginStart="18dp"
 
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_empty_icon_new"
+                        android:src="@drawable/point_icon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -716,10 +718,10 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                        android:visibility="gone"
                         android:id="@+id/cueProgressBar"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
+                        android:visibility="gone"
                         app:cpb_background_progressbar_color="#71E9FF"
                         app:cpb_background_progressbar_width="10dp"
                         app:cpb_progress="4"
@@ -734,7 +736,6 @@
                         app:layout_constraintTop_toBottomOf="@+id/cueTitle" />
 
                     <TextView
-                        android:visibility="gone"
                         android:id="@+id/cueSubTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -742,6 +743,7 @@
                         android:text="34"
                         android:textColor="#121212"
                         android:textSize="27dp"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="@id/cueProgressBar"
                         app:layout_constraintEnd_toEndOf="@id/cueProgressBar"
                         app:layout_constraintStart_toStartOf="@+id/cueProgressBar"
@@ -774,10 +776,10 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                        android:visibility="gone"
                         android:id="@+id/flashProgressBar"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
+                        android:visibility="gone"
                         app:cpb_background_progressbar_color="#C9C9F8"
                         app:cpb_background_progressbar_width="10dp"
                         app:cpb_progress="60"
@@ -791,7 +793,6 @@
                         app:layout_constraintTop_toBottomOf="@+id/flashTitle" />
 
                     <TextView
-                        android:visibility="gone"
                         android:id="@+id/flashSubTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -799,6 +800,7 @@
                         android:text="34"
                         android:textColor="#121212"
                         android:textSize="27dp"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="@id/flashProgressBar"
                         app:layout_constraintEnd_toEndOf="@id/flashProgressBar"
                         app:layout_constraintStart_toStartOf="@+id/flashProgressBar"
@@ -857,18 +859,17 @@
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/mechImage"
-                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:scaleType="fitXY"
                         android:src="@drawable/mech_icon"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toTopOf="@+id/mechSubTitle"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/mechTitle" />
 
                     <TextView
-                        android:visibility="gone"
                         android:id="@+id/mechSubTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -878,6 +879,7 @@
                         android:text="@string/Mechanical"
                         android:textColor="@color/mech_text_color"
                         android:textSize="16sp"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -910,7 +912,6 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:visibility="gone"
                         android:id="@+id/hours"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -918,13 +919,13 @@
                         android:text="34"
                         android:textColor="@color/time_text_color"
                         android:textSize="61sp"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toTopOf="@+id/timeSubTitle"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/timeTitle" />
 
                     <TextView
-                        android:visibility="gone"
                         android:id="@+id/timeSubTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -934,6 +935,7 @@
                         android:text="@string/Hours"
                         android:textColor="@color/time_text_color"
                         android:textSize="16sp"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />

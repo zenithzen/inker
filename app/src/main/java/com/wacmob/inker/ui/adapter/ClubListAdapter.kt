@@ -22,6 +22,9 @@ import android.widget.ImageView
 import com.wacmob.inker.utils.px
 import android.graphics.ColorMatrixColorFilter
 import androidx.compose.ui.graphics.Color
+import android.app.Activity
+
+import android.util.DisplayMetrics
 
 
 class ClubListAdapter(val context: Context, val listener: RecyclerSelectorListener) :
@@ -61,10 +64,11 @@ class ClubListAdapter(val context: Context, val listener: RecyclerSelectorListen
     override fun onBindViewHolder(holder: ClubViewHolder, position: Int) {
         val data = differ.currentList[position]
 
-        // holder.setIsRecyclable(false)
+
         val itemBinding = holder.itemBinding
         itemBinding.normalLayout.show()
         itemBinding.largeLayout.hide()
+
         if (differ.currentList.size > 3) {
             itemBinding.bronzText.minWidth = 0.px
         } else {
@@ -73,39 +77,27 @@ class ClubListAdapter(val context: Context, val listener: RecyclerSelectorListen
         }
         if (data.isSelected) {
             setUnlocked(itemBinding.bronzItem)
-
-            /*  holder.itemBinding.bronzItem.requestLayout()
-              holder.itemBinding.bronzItem.layoutParams.width = 68.px
-              holder.itemBinding.bronzItem.layoutParams.height = 66.px
-              holder.itemBinding.bronzItem.scaleType = ImageView.ScaleType.FIT_XY*/
-            println("@SEL" + "YES-" + position)
             val anim: Animation = AnimationUtils.loadAnimation(context, R.anim.scale_in_tv)
             itemBinding.root.startAnimation(anim)
             anim.fillAfter = true
+          /*  itemBinding.largeLayout.show()
+            itemBinding.normalLayout.hide()*/
 
             itemBinding.bronzText.setTextColor(context.resources.getColor(R.color.black))
-            /* itemBinding.root.requestFocus()
-             itemBinding.normalLayout.hide()
-             itemBinding.largeLayout.show()*/
+
 
         } else {
+           /* itemBinding.largeLayout.hide()
+            itemBinding.normalLayout.show()*/
             setLocked(itemBinding.bronzItem)
             itemBinding.bronzText.setTextColor(context.resources.getColor(R.color.default_color))
-            /* holder.itemBinding.bronzItem.requestLayout()
-             holder.itemBinding.bronzItem.layoutParams.width = 52.px
-             holder.itemBinding.bronzItem.layoutParams.height = 48.px
-             holder.itemBinding.bronzItem.scaleType = ImageView.ScaleType.FIT_XY*/
             val anim: Animation = AnimationUtils.loadAnimation(context, R.anim.scale_out_tv)
             itemBinding.root.startAnimation(anim)
             anim.fillAfter = true
 
-            /*  itemBinding.normalLayout.show()
-              itemBinding.largeLayout.hide()*/
+
         }
-        /*  if (position!=0) {
-              itemBinding.bronzItem.getDrawable()
-                  .setColorFilter(0x76ffffff, PorterDuff.Mode.MULTIPLY)
-          }*/
+
 
         /*  itemBinding.root.setOnFocusChangeListener { focusedView, hasFocus ->
 

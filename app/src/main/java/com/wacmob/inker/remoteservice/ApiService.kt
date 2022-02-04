@@ -29,5 +29,13 @@ interface ApiService {
     suspend fun getClubList(
         @Tag authorization: AuthorizationInterceptor.AuthorizationType =
             AuthorizationInterceptor.AuthorizationType.USER_TOKEN,
-    ):Response<ClubListResponse>
+    ): Response<ClubListResponse>
+
+
+    @GET("user/profiles/{profile_id}/leaderboard")
+    suspend fun getLeaderBoardData(
+        @Path("profile_id") profile_id: String,
+        @Tag authorization: AuthorizationInterceptor.AuthorizationType =
+            AuthorizationInterceptor.AuthorizationType.USER_TOKEN,
+    ): Response<LeaderBoardResponse>
 }
